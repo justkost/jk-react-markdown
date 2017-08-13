@@ -7,7 +7,9 @@ class App extends Component {
     return (
       <div>
         <h1>Example</h1>
-        <JkReactMarkdown />
+        <JkReactMarkdown
+          className="form-control"
+        />
       </div>
     )
   }

@@ -4,7 +4,8 @@
   "description": "A simple markdown editor for react",
   "main": "/dist/JkReactMarkdown.js",
   "scripts": {
-    "build": "webpack",
+    "start": "webpack",
+    "build": "NODE_ENV=production webpack",
     "lint": "eslint ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -36,6 +37,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "postcss-loader": "^2.0.6",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "rimraf": "^2.6.1",

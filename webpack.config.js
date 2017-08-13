@@ -3,6 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const rimraf = require('rimraf')
+const NODE_ENV = process.env.NODE_ENV || 'development'
 
 module.exports = {
   entry: {
@@ -13,6 +14,8 @@ module.exports = {
     filename: '[name].js',
     path: path.join(__dirname, './dist')
   },
+  watch: NODE_ENV === 'development',
+  devtool: NODE_ENV === 'development' ? 'eval' : false,
   module: {
     rules: [
       {
@@ -48,9 +51,14 @@ module.exports = {
     },
     new ExtractTextPlugin({
       filename: 'jk-react-markdown.css'
-    }),
+    })
+  ]
+}
+
+if (NODE_ENV === 'production') {
+  module.exports.plugins.push(
     new UglifyJSPlugin({
       compress: true
     })
-  ]
+  )
 }
