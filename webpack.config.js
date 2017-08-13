@@ -5,9 +5,12 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const rimraf = require('rimraf')
 
 module.exports = {
-  entry: path.join(__dirname, './src/JkReactMarkdown.js'),
+  entry: {
+    JkReactMarkdown: path.join(__dirname, './src/JkReactMarkdown.js'),
+    app: path.join(__dirname, './example/app.js')
+  },
   output: {
-    filename: 'JkReactMarkdown.js',
+    filename: '[name].js',
     path: path.join(__dirname, './dist')
   },
   module: {
