@@ -40,6 +40,15 @@ class Buttons {
       symbol: 'UL',
       type: this.types.line,
       markdown: '* '
+    },
+    {
+      name: 'a',
+      symbol: 'A',
+      type: this.types.area,
+      markdown: {
+        before: '[',
+        after: '](https://)'
+      }
     }
   ]
 

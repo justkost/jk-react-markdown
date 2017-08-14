@@ -15,15 +15,24 @@ export default ({
   if (typeof button !== 'object') throw new Error('button not object')
 
   if (button.type === types.area) {
+    let before = typeof button.markdown === 'string' ?
+      button.markdown :
+      button.markdown.before
+    let after = typeof button.markdown === 'string' ?
+      button.markdown :
+      button.markdown.after
+    let offset = typeof button.markdown === 'string' ?
+      button.markdown.length :
+      button.markdown.before.length
     let newText = insertText({
       text: text,
       position: selectionStart,
-      inserted: button.markdown
+      inserted: before
     })
     newText = insertText({
       text: newText,
-      position: selectionEnd + button.markdown.length,
-      inserted: button.markdown
+      position: selectionEnd + offset,
+      inserted: after
     })
     return newText
   }
