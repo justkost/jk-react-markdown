@@ -5,6 +5,8 @@ A simple markdown editor for react
 
 ## Usage
 
+npm i jk-react-markdown
+
 ```js
 import Editor from 'jk-react-markdown'
 
