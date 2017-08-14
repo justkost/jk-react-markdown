@@ -4,7 +4,7 @@ import JkReactMarkdown from '../src/JkReactMarkdown'
 
 class App extends Component {
   state = {
-    value: ''
+    value: 'Hello world!!!'
   }
 
   onChange = (text) => {

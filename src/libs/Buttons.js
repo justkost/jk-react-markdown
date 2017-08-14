@@ -1,19 +1,45 @@
 class Buttons {
   types = {
-    line: 'lines',
+    line: 'line',
     area: 'area'
   }
 
   list = [
     {
+      name: 'h1',
+      symbol: 'H1',
+      type: this.types.line,
+      markdown: '# '
+    },
+    {
+      name: 'h2',
+      symbol: 'H2',
+      type: this.types.line,
+      markdown: '## '
+    },
+    {
+      name: 'h3',
+      symbol: 'H3',
+      type: this.types.line,
+      markdown: '### '
+    },
+    {
+      name: 'i',
+      symbol: 'I',
+      type: this.types.area,
+      markdown: '*'
+    },
+    {
       name: 'b',
       symbol: 'B',
-      type: this.types.area
+      type: this.types.area,
+      markdown: '**'
     },
     {
       name: 'ul',
       symbol: 'UL',
-      type: this.types.line
+      type: this.types.line,
+      markdown: '* '
     }
   ]
 

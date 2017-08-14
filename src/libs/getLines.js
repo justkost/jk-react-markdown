@@ -21,5 +21,12 @@ export default (start, end, text) => {
       result.push(endLine + 1)
     }
   }
+  if (!result.length && text[text.length - 1] !== '\n') {
+    if (endLines.length) {
+      result.push(endLines[endLines.length - 1] + 1)
+    } else {
+      result.push(0)
+    }
+  }
   return result
 }

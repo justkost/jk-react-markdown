@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Panel from './components/Panel'
 import Buttons from './libs/Buttons'
 import getLines from './libs/getLines'
+import getNewText from './libs/getNewText'
 
 const { getButtonByName } = new Buttons()
 
@@ -15,9 +16,23 @@ class JkReactMarkdown extends Component {
     onChange: PropTypes.func
   }
 
+  state = {
+    selectionStr: '',
+    selectionStart: 0,
+    selectionEnd: 0,
+    selectionlines: []
+  }
+
   onClickButton = (name) => {
-    let button = getButtonByName(name)
-    console.log(button)
+    let newText = getNewText({
+      button: getButtonByName(name),
+      text: this.props.value,
+      selectionStr: this.state.selectionStr,
+      selectionStart: this.state.selectionStart,
+      selectionEnd: this.state.selectionEnd,
+      selectionlines: this.state.selectionlines
+    })
+    this.props.onChange(newText)
   }
 
   onChange = (e) => {
@@ -32,14 +47,17 @@ class JkReactMarkdown extends Component {
     let selectionStr = this.props.value.substring(
       selectionStart, selectionEnd
     )
-    let lines = getLines(selectionStart, selectionEnd, this.props.value)
-    let selectedData = {
-      text: selectionStr,
-      start: selectionStart,
-      end: selectionEnd,
-      lines: lines
-    }
-    console.log(selectedData)
+    let selectionlines = getLines(
+      selectionStart,
+      selectionEnd,
+      this.props.value
+    )
+    this.setState({
+      selectionStr,
+      selectionStart,
+      selectionEnd,
+      selectionlines
+    })
   }
 
   render () {
@@ -50,7 +68,6 @@ class JkReactMarkdown extends Component {
       <div>
         <Panel onClick={ this.onClickButton } />
         <textarea
-          id="JkReactMarkdownTextarea"
           cols={ cols }
           rows={ rows }
           className={ this.props.className }
