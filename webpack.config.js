@@ -1,6 +1,5 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const rimraf = require('rimraf')
 const NODE_ENV = process.env.NODE_ENV || 'development'
@@ -12,7 +11,13 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, './dist')
+    path: path.join(__dirname, './dist'),
+    library: 'JkReactMarkdown',
+    libraryTarget: 'umd'
+  },
+  externals: {
+    'react': 'react',
+    'react-dom': 'react-dom'
   },
   watch: NODE_ENV === 'development',
   devtool: NODE_ENV === 'development' ? 'eval' : false,

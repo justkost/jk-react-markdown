@@ -79,4 +79,4 @@ class JkReactMarkdown extends Component {
   }
 }
 
-module.exports = JkReactMarkdown
+export default JkReactMarkdown
