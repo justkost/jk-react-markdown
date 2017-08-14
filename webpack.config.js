@@ -15,10 +15,6 @@ module.exports = {
     library: 'JkReactMarkdown',
     libraryTarget: 'umd'
   },
-  externals: {
-    'react': 'react',
-    'react-dom': 'react-dom'
-  },
   watch: NODE_ENV === 'development',
   devtool: NODE_ENV === 'development' ? 'eval' : false,
   module: {
@@ -61,6 +57,10 @@ module.exports = {
 }
 
 if (NODE_ENV === 'production') {
+  module.exports.externals = {
+    'react': 'react',
+    'react-dom': 'react-dom'
+  }
   module.exports.plugins.push(
     new UglifyJSPlugin({
       compress: true
