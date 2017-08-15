@@ -15,15 +15,22 @@ export default ({
   if (typeof button !== 'object') throw new Error('button not object')
 
   if (button.type === types.area) {
-    let before = typeof button.markdown === 'string' ?
-      button.markdown :
-      button.markdown.before
-    let after = typeof button.markdown === 'string' ?
-      button.markdown :
-      button.markdown.after
-    let offset = typeof button.markdown === 'string' ?
-      button.markdown.length :
-      button.markdown.before.length
+    let before
+    let after
+    let offset
+
+    if (typeof button.markdown === 'string') {
+      before = button.markdown
+      after = button.markdown
+      offset = button.markdown.length
+    } else if (typeof button.markdown === 'object') {
+      before = button.markdown.before
+      after = button.markdown.after
+      offset = button.markdown.before.length
+    } else {
+      throw new Error('button.markdown is not string or object')
+    }
+
     let newText = insertText({
       text: text,
       position: selectionStart,
@@ -51,5 +58,5 @@ export default ({
     return newText
   }
 
-  throw new Error('button type error')
+  throw new Error('button.type error')
 }
