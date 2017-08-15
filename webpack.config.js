@@ -23,10 +23,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['react', 'es2015', 'stage-2']
-          }
+          loader: 'babel-loader'
         }
       },
       {
