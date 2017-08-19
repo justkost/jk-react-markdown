@@ -10,7 +10,6 @@ export default ({
   selectionEnd,
   selectionlines
 }) => {
-  if (!text) return ''
   if (typeof text !== 'string') throw new Error('text not string')
   if (typeof button !== 'object') throw new Error('button not object')
 
