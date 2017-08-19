@@ -1,13 +1,16 @@
 # jk-react-markdown
 A simple markdown editor for react
 
-**Not production ready**
+**Not production ready!**
+
+## Install
+
+npm install --save jk-react-markdown
 
 ## Usage
 
-npm i jk-react-markdown
-
 ```js
+import 'jk-react-markdown/dist/jk-react-markdown.css'
 import Editor from 'jk-react-markdown'
 
 <Editor
