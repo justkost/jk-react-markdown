@@ -1,4 +1,5 @@
-import insertText from './insertText'
+import insertTag from './insertTag'
+import removeTag from './removeTag'
 import Buttons from './Buttons'
 const { types } = new Buttons()
 
@@ -26,6 +27,7 @@ export default ({
     let before
     let after
     let offset
+    let newText
 
     (function leftTrim () {
       if (selectionStr && /^\s/.test(selectionStr)) {
@@ -55,12 +57,32 @@ export default ({
       throw new Error('button.markdown is not string or object')
     }
 
-    let newText = insertText({
+    if (selectionStr) {
+      let bigString = text.substring(
+        selectionStart - before.length,
+        selectionEnd + after.length
+      )
+      if (
+        bigString.substr(0, before.length) === before &&
+        bigString.substr(bigString.length - after.length) === after
+      ) {
+        newText = removeTag({
+          text: text,
+          selectionStart: selectionStart,
+          selectionEnd: selectionEnd,
+          before: before,
+          after: after
+        })
+        return newText
+      }
+    }
+
+    newText = insertTag({
       text: text,
       position: selectionStart,
       inserted: before
     })
-    newText = insertText({
+    newText = insertTag({
       text: newText,
       position: selectionEnd + offset,
       inserted: after
@@ -72,7 +94,7 @@ export default ({
     let newText = text
 
     selectionlines.forEach((line, index) => {
-      newText = insertText({
+      newText = insertTag({
         text: newText,
         position: line + (index * button.markdown.length),
         inserted: button.markdown
