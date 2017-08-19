@@ -16,16 +16,32 @@ export default ({
   if (!selectionlines.length) {
     selectionlines.push(selectionStart)
   }
-  
-  console.log('selectionStr', selectionStr)
-  console.log('selectionStart', selectionStart)
-  console.log('selectionEnd', selectionEnd)
-  console.log('selectionlines', selectionlines)
+
+  // console.log('selectionStr', selectionStr)
+  // console.log('selectionStart', selectionStart)
+  // console.log('selectionEnd', selectionEnd)
+  // console.log('selectionlines', selectionlines)
 
   if (button.type === types.area) {
     let before
     let after
     let offset
+
+    (function leftTrim () {
+      if (selectionStr && /^\s/.test(selectionStr)) {
+        selectionStr = selectionStr.substring(1)
+        selectionStart = selectionStart + 1
+        leftTrim()
+      }
+    })();
+
+    (function rightTrim () {
+      if (selectionStr && /\s$/.test(selectionStr)) {
+        selectionStr = selectionStr.substring(0, selectionStr.length - 1)
+        selectionEnd = selectionEnd - 1
+        rightTrim()
+      }
+    })()
 
     if (typeof button.markdown === 'string') {
       before = button.markdown
