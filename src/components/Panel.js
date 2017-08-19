@@ -1,23 +1,10 @@
+import './panel.css'
+import '../fontello/css/fontello.css'
+
 import React, { Component } from 'react'
 import Buttons from '../libs/Buttons'
 import PropTypes from 'prop-types'
 const { list } = new Buttons()
-const styles = {
-  panel: {
-    display: 'table',
-    borderCollapse: 'collapse'
-  },
-  btn: {
-    display: 'table-cell',
-    padding: '5px',
-    textDecoration: 'none',
-    color: '#000',
-    border: '1px solid #000',
-    fontSize: '14px',
-    width: '50px',
-    textAlign: 'center'
-  }
-}
 
 class Panel extends Component {
   static propTypes = {
@@ -35,15 +22,17 @@ class Panel extends Component {
         <a href="#"
           key={ button.name }
           onClick={ this.onClick(button.name) }
-          style={ styles.btn }>
-          { button.symbol }
+          className="JkReactMarkdown__panel__btn">
+          <i className={ button.symbol }></i>
         </a>
       )
     })
 
     return (
-      <div style={ styles.panel }>
-        { buttonsList }
+      <div className="JkReactMarkdown__panel">
+        <div className="JkReactMarkdown__panel-inner">
+          { buttonsList }
+        </div>
       </div>
     )
   }

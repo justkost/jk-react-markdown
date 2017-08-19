@@ -51,5 +51,13 @@
     "uglifyjs-webpack-plugin": "^0.4.3",
     "url-loader": "^0.5.8",
     "webpack": "^2.5.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.css$": "identity-obj-proxy"
+    },
+    "transform": {
+      "\\.js$": "babel-jest"
+    }
   }
 }

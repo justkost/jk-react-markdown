@@ -6,44 +6,32 @@ class Buttons {
 
   list = [
     {
-      name: 'h1',
-      symbol: 'H1',
-      type: this.types.line,
-      markdown: '# '
-    },
-    {
-      name: 'h2',
-      symbol: 'H2',
-      type: this.types.line,
-      markdown: '## '
-    },
-    {
       name: 'h3',
-      symbol: 'H3',
+      symbol: 'icon-header',
       type: this.types.line,
       markdown: '### '
     },
     {
       name: 'i',
-      symbol: 'I',
+      symbol: 'icon-italic',
       type: this.types.area,
       markdown: '*'
     },
     {
       name: 'b',
-      symbol: 'B',
+      symbol: 'icon-bold',
       type: this.types.area,
       markdown: '**'
     },
     {
       name: 'ul',
-      symbol: 'UL',
+      symbol: 'icon-list-bullet',
       type: this.types.line,
       markdown: '* '
     },
     {
       name: 'a',
-      symbol: 'A',
+      symbol: 'icon-link',
       type: this.types.area,
       markdown: {
         before: '[',

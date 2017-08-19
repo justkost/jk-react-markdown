@@ -1,0 +1,25 @@
+.JkReactMarkdown__panel{
+  background: #333;
+}
+
+.JkReactMarkdown__panel-inner{
+  display: table;
+  border-collapse: collapse;
+}
+
+.JkReactMarkdown__panel__btn{
+  display: table-cell;
+  padding: 5px;
+  text-decoration: none;
+  color: #eee;
+  border-right: 1px solid #666;
+  font-size: 14px;
+  width: 50px;
+  text-align: center;
+  outline: none;
+}
+
+.JkReactMarkdown__panel__btn:hover{
+  color: #eee;
+  background: #444;
+}
