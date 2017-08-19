@@ -13,6 +13,15 @@ export default ({
   if (typeof text !== 'string') throw new Error('text not string')
   if (typeof button !== 'object') throw new Error('button not object')
 
+  if (!selectionlines.length) {
+    selectionlines.push(selectionStart)
+  }
+  
+  console.log('selectionStr', selectionStr)
+  console.log('selectionStart', selectionStart)
+  console.log('selectionEnd', selectionEnd)
+  console.log('selectionlines', selectionlines)
+
   if (button.type === types.area) {
     let before
     let after
