@@ -19,9 +19,10 @@
     "url": "https://github.com/justkost/jk-react-markdown/issues"
   },
   "homepage": "https://github.com/justkost/jk-react-markdown#readme",
-  "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+  "peerDependencies": {
+    "react": "15.x",
+    "react-dom": "15.x",
+    "prop-types": "15.x"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -45,6 +46,8 @@
     "jest": "^20.0.4",
     "postcss-loader": "^2.0.6",
     "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
     "rimraf": "^2.6.1",
     "style-loader": "^0.17.0",
