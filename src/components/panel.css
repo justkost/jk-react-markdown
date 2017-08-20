@@ -7,7 +7,7 @@
   border-collapse: collapse;
 }
 
-.JkReactMarkdown__panel__btn{
+.JkReactMarkdown__panel-btn{
   display: table-cell;
   padding: 5px;
   text-decoration: none;
@@ -19,7 +19,22 @@
   outline: none;
 }
 
-.JkReactMarkdown__panel__btn:hover{
+.JkReactMarkdown__panel-btn:hover{
   color: #eee;
   background: #444;
+}
+
+.JkReactMarkdown__panel-btn:focus{
+  color: #eee;
+  background: #444;
+}
+
+.JkReactMarkdown__panel-btn--disabled{
+  color: #666;
+}
+.JkReactMarkdown__panel-btn--disabled:hover{
+  color: #666;
+}
+.JkReactMarkdown__panel-btn--disabled:focus{
+  color: #666;
 }
