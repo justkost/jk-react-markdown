@@ -63,5 +63,8 @@
     "transform": {
       "\\.js$": "babel-jest"
     }
+  },
+  "dependencies": {
+    "react-markdown": "^2.5.0"
   }
 }

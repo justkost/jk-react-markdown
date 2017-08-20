@@ -15,7 +15,7 @@ class Buttons {
       name: 'i',
       symbol: 'icon-italic',
       type: this.types.area,
-      markdown: '*'
+      markdown: '_'
     },
     {
       name: 'b',

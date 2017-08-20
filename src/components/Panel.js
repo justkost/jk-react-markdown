@@ -32,6 +32,11 @@ class Panel extends Component {
       <div className="JkReactMarkdown__panel">
         <div className="JkReactMarkdown__panel-inner">
           { buttonsList }
+          <a href="#"
+            onClick={ this.onClick('showResult') }
+            className="JkReactMarkdown__panel__btn">
+            <i className="icon-eye"></i>
+          </a>
         </div>
       </div>
     )
