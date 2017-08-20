@@ -91,7 +91,9 @@ class JkReactMarkdown extends Component {
 
     return (
       <div>
-        <Panel onClick={ this.onClickButton } />
+        <Panel
+          onClick={ this.onClickButton }
+          showResult={ this.state.showResult }/>
         { this.state.showResult ? result : editor }
       </div>
     )

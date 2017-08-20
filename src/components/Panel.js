@@ -8,7 +8,8 @@ const { list } = new Buttons()
 
 class Panel extends Component {
   static propTypes = {
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    showResult: PropTypes.bool
   }
 
   onClick = (name) => (e) => {
@@ -18,12 +19,16 @@ class Panel extends Component {
 
   render () {
     let buttonsList = list.map((button, index) => {
+      let className = 'JkReactMarkdown__panel-btn'
+      if (this.props.showResult) {
+        className += ' JkReactMarkdown__panel-btn--disabled'
+      }
       return (
         <a href="#"
           key={ button.name }
           onClick={ this.onClick(button.name) }
           title={ button.title }
-          className="JkReactMarkdown__panel__btn">
+          className={ className }>
           <i className={ button.symbol }></i>
         </a>
       )
@@ -36,7 +41,7 @@ class Panel extends Component {
           <a href="#"
             onClick={ this.onClick('showResult') }
             title="Result"
-            className="JkReactMarkdown__panel__btn">
+            className="JkReactMarkdown__panel-btn">
             <i className="icon-eye"></i>
           </a>
         </div>
