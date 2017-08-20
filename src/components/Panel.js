@@ -22,6 +22,7 @@ class Panel extends Component {
         <a href="#"
           key={ button.name }
           onClick={ this.onClick(button.name) }
+          title={ button.title }
           className="JkReactMarkdown__panel__btn">
           <i className={ button.symbol }></i>
         </a>
@@ -34,6 +35,7 @@ class Panel extends Component {
           { buttonsList }
           <a href="#"
             onClick={ this.onClick('showResult') }
+            title="Result"
             className="JkReactMarkdown__panel__btn">
             <i className="icon-eye"></i>
           </a>
