@@ -20,3 +20,12 @@ import Editor from 'jk-react-markdown'
   onChange={ this.onChange }
 />
 ```
+
+## Props
+
+* className: PropTypes.string
+* headerLevel: PropTypes.number
+* cols: PropTypes.string
+* rows: PropTypes.string
+* value: PropTypes.string
+* onChange: PropTypes.func
