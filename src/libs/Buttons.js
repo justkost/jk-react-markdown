@@ -6,7 +6,7 @@ class Buttons {
 
   list = [
     {
-      name: 'h3',
+      name: 'h',
       title: 'Header',
       symbol: 'icon-header',
       type: this.types.line,
@@ -41,6 +41,16 @@ class Buttons {
       markdown: {
         before: '[',
         after: '](https://)'
+      }
+    },
+    {
+      name: 'img',
+      title: 'Image',
+      symbol: 'icon-picture',
+      type: this.types.area,
+      markdown: {
+        before: '![alt text](',
+        after: ')'
       }
     }
   ]

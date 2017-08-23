@@ -5,9 +5,10 @@ const rimraf = require('rimraf')
 const NODE_ENV = process.env.NODE_ENV || 'development'
 
 module.exports = {
-  entry: {
-    JkReactMarkdown: path.join(__dirname, './src/JkReactMarkdown.js'),
+  entry: NODE_ENV === 'development' ? {
     app: path.join(__dirname, './example/app.js')
+  } : {
+    JkReactMarkdown: path.join(__dirname, './src/JkReactMarkdown.js')
   },
   output: {
     filename: '[name].js',

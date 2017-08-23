@@ -19,6 +19,7 @@ class App extends Component {
           className="form-control"
           onChange={ this.onChange }
           value={ this.state.value }
+          headerLevel={ 1 }
         />
       </div>
     )

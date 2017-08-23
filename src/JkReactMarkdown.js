@@ -13,6 +13,7 @@ const { getButtonByName } = new Buttons()
 class JkReactMarkdown extends Component {
   static propTypes = {
     className: PropTypes.string,
+    headerLevel: PropTypes.number,
     cols: PropTypes.string,
     rows: PropTypes.string,
     value: PropTypes.string,
@@ -41,7 +42,8 @@ class JkReactMarkdown extends Component {
       selectionStr: this.state.selectionStr,
       selectionStart: this.state.selectionStart,
       selectionEnd: this.state.selectionEnd,
-      selectionlines: this.state.selectionlines
+      selectionlines: this.state.selectionlines,
+      headerLevel: this.props.headerLevel
     })
     this.props.onChange(newText)
   }
