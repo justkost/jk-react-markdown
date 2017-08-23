@@ -18,6 +18,5 @@ import Editor from 'jk-react-markdown'
   rows="10"
   value={ this.state.value }
   onChange={ this.onChange }
-  className="form-control"
 />
 ```

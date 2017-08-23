@@ -80,7 +80,7 @@ class JkReactMarkdown extends Component {
       <textarea
         cols={ cols }
         rows={ rows }
-        className={ this.props.className }
+        className={ this.props.className || 'JkReactMarkdown__textarea' }
         value={ this.props.value }
         onChange={ this.onChange }
         onSelect={ this.onSelect }></textarea>

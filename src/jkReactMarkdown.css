@@ -2,3 +2,9 @@
   border: 1px solid #333;
   padding: 5px 15px;
 }
+
+.JkReactMarkdown__textarea{
+  border: 1px solid #333;
+  padding: 5px 15px;
+  width: 100%;
+}
