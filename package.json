@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/justkost/jk-react-markdown#readme",
   "peerDependencies": {
-    "react": "15.x",
-    "react-dom": "15.x",
-    "prop-types": "15.x"
+    "react": ">=15.x",
+    "react-dom": ">=15.x",
+    "prop-types": ">=15.x"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

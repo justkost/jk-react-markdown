@@ -9,7 +9,8 @@ export default ({
   selectionStr,
   selectionStart,
   selectionEnd,
-  selectionlines
+  selectionlines,
+  headerLevel
 }) => {
   if (typeof text !== 'string') throw new Error('text not string')
   if (typeof button !== 'object') throw new Error('button not object')
@@ -23,6 +24,7 @@ export default ({
   // console.log('selectionEnd', selectionEnd)
   // console.log('selectionlines', selectionlines)
 
+  // Area
   if (button.type === types.area) {
     let before
     let after
@@ -75,6 +77,12 @@ export default ({
         })
         return newText
       }
+    } else {
+      if (button.name === 'img') {
+        let text = 'https://'
+        before += text
+        offset += text.length
+      }
     }
 
     newText = insertTag({
@@ -89,20 +97,47 @@ export default ({
     })
     return newText
   }
+  // End Area
 
+  // Line
   if (button.type === types.line) {
     let newText = text
+    let markdownText = button.markdown
+
+    if (headerLevel && button.name === 'h') {
+      switch (headerLevel) {
+        case 1:
+          markdownText = '# '
+          break
+        case 2:
+          markdownText = '## '
+          break
+        case 3:
+          markdownText = '### '
+          break
+        case 4:
+          markdownText = '#### '
+          break
+        case 5:
+          markdownText = '##### '
+          break
+        case 6:
+          markdownText = '######'
+          break
+      }
+    }
 
     selectionlines.forEach((line, index) => {
       newText = insertTag({
         text: newText,
-        position: line + (index * button.markdown.length),
-        inserted: button.markdown
+        position: line + (index * markdownText.length),
+        inserted: markdownText
       })
     })
 
     return newText
   }
+  // End Line
 
   throw new Error('button.type error')
 }

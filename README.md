@@ -18,6 +18,14 @@ import Editor from 'jk-react-markdown'
   rows="10"
   value={ this.state.value }
   onChange={ this.onChange }
-  className="form-control"
 />
 ```
+
+## Props
+
+* className: PropTypes.string
+* headerLevel: PropTypes.number
+* cols: PropTypes.string
+* rows: PropTypes.string
+* value: PropTypes.string
+* onChange: PropTypes.func
