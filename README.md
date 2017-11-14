@@ -1,8 +1,6 @@
 # jk-react-markdown
 A simple markdown editor for react
 
-**Not production ready!**
-
 ## Install
 
 npm install --save jk-react-markdown
@@ -24,7 +22,6 @@ import Editor from 'jk-react-markdown'
 ## Props
 
 * className: PropTypes.string
-* headerLevel: PropTypes.number
 * cols: PropTypes.string
 * rows: PropTypes.string
 * value: PropTypes.string

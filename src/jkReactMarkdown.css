@@ -1,10 +1,13 @@
 .JkReactMarkdown__result{
-  border: 1px solid #333;
+  border: 2px solid #333;
   padding: 5px 15px;
+  background: #fff;
+  min-height: 50px;
 }
 
 .JkReactMarkdown__textarea{
-  border: 1px solid #333;
+  border: 2px solid #333;
   padding: 5px 15px;
   width: 100%;
+  background: #fff;
 }

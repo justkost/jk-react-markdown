@@ -21,12 +21,12 @@
 
 .JkReactMarkdown__panel-btn:hover{
   color: #eee;
-  background: #444;
+  background: rgba(0,0,0,0.1);
 }
 
 .JkReactMarkdown__panel-btn:focus{
   color: #eee;
-  background: #444;
+  background: rgba(0,0,0,0.1);
 }
 
 .JkReactMarkdown__panel-btn--disabled{

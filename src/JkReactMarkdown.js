@@ -13,11 +13,11 @@ const { getButtonByName } = new Buttons()
 class JkReactMarkdown extends Component {
   static propTypes = {
     className: PropTypes.string,
-    headerLevel: PropTypes.number,
     cols: PropTypes.string,
     rows: PropTypes.string,
     value: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    styles: PropTypes.object
   }
 
   state = {
@@ -42,8 +42,7 @@ class JkReactMarkdown extends Component {
       selectionStr: this.state.selectionStr,
       selectionStart: this.state.selectionStart,
       selectionEnd: this.state.selectionEnd,
-      selectionlines: this.state.selectionlines,
-      headerLevel: this.props.headerLevel
+      selectionlines: this.state.selectionlines
     })
     this.props.onChange(newText)
   }
@@ -74,19 +73,24 @@ class JkReactMarkdown extends Component {
   }
 
   render () {
+    let { styles } = this.props
+    styles = styles || {}
     let cols = this.props.cols ? this.props.cols : '30'
     let rows = this.props.rows ? this.props.rows : '5'
+    let styleEditor = styles.editor || {}
+    let styleResult = styles.result || {}
     let editor = (
       <textarea
         cols={ cols }
         rows={ rows }
+        style={ styleEditor }
         className={ this.props.className || 'JkReactMarkdown__textarea' }
         value={ this.props.value }
         onChange={ this.onChange }
         onSelect={ this.onSelect }></textarea>
     )
     let result = (
-      <div className="JkReactMarkdown__result">
+      <div className="JkReactMarkdown__result" style={ styleResult }>
         <ReactMarkdown source={ this.props.value } />
       </div>
     )
@@ -95,6 +99,7 @@ class JkReactMarkdown extends Component {
       <div>
         <Panel
           onClick={ this.onClickButton }
+          style={ this.props.styles }
           showResult={ this.state.showResult }/>
         { this.state.showResult ? result : editor }
       </div>
