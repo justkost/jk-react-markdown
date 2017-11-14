@@ -1,57 +1,57 @@
 class Buttons {
   types = {
-    line: 'line',
-    area: 'area'
+    block: 'block',
+    inline: 'inline'
   }
 
   list = [
     {
-      name: 'h',
+      name: 'h3',
       title: 'Header',
       symbol: 'icon-header',
-      type: this.types.line,
-      markdown: '### '
-    },
-    {
-      name: 'i',
-      title: 'Italic',
-      symbol: 'icon-italic',
-      type: this.types.area,
-      markdown: '_'
-    },
-    {
-      name: 'b',
-      title: 'Bold',
-      symbol: 'icon-bold',
-      type: this.types.area,
-      markdown: '**'
+      type: this.types.block,
+      before: '### ',
+      re: /^###\s+/
     },
     {
       name: 'ul',
       title: 'List',
       symbol: 'icon-list-bullet',
-      type: this.types.line,
-      markdown: '* '
+      type: this.types.block,
+      before: '* ',
+      re: /^[\*\-]\s+/ // eslint-disable-line
+    },
+    {
+      name: 'i',
+      title: 'Italic',
+      symbol: 'icon-italic',
+      type: this.types.inline,
+      before: '_',
+      after: '_'
+    },
+    {
+      name: 'b',
+      title: 'Bold',
+      symbol: 'icon-bold',
+      type: this.types.inline,
+      before: '**',
+      after: '**'
     },
     {
       name: 'a',
       title: 'Link',
       symbol: 'icon-link',
-      type: this.types.area,
-      markdown: {
-        before: '[',
-        after: '](https://)'
-      }
+      type: this.types.inline,
+      before: '[',
+      after: '](https://)'
     },
     {
       name: 'img',
       title: 'Image',
       symbol: 'icon-picture',
-      type: this.types.area,
-      markdown: {
-        before: '![alt text](',
-        after: ')'
-      }
+      type: this.types.inline,
+      before: '![alt text](',
+      after: ')'
     }
   ]
 

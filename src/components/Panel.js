@@ -9,7 +9,8 @@ const { list } = new Buttons()
 class Panel extends Component {
   static propTypes = {
     onClick: PropTypes.func,
-    showResult: PropTypes.bool
+    showResult: PropTypes.bool,
+    style: PropTypes.object
   }
 
   onClick = (name) => (e) => {
@@ -18,6 +19,9 @@ class Panel extends Component {
   }
 
   render () {
+    let { style } = this.props
+    style = style || {}
+    let stylePanel = style.panel || {}
     let buttonsList = list.map((button, index) => {
       let className = 'JkReactMarkdown__panel-btn'
       if (this.props.showResult) {
@@ -35,7 +39,7 @@ class Panel extends Component {
     })
 
     return (
-      <div className="JkReactMarkdown__panel">
+      <div className="JkReactMarkdown__panel" style={ stylePanel }>
         <div className="JkReactMarkdown__panel-inner">
           { buttonsList }
           <a href="#"
