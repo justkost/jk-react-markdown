@@ -1,6 +1,6 @@
 {
   "name": "jk-react-markdown",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A simple markdown editor for react",
   "main": "/dist/JkReactMarkdown.js",
   "scripts": {
@@ -66,5 +66,14 @@
   },
   "dependencies": {
     "react-markdown": "^2.5.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "editor",
+    "code",
+    "wysiwyg",
+    "md",
+    "markdown"
+  ]
 }
