@@ -7,12 +7,6 @@ class App extends Component {
     value: 'Hello **world**!!!'
   }
 
-  styles = {
-    editor: {borderColor: '#2c3e50'},
-    result: {borderColor: '#2c3e50'},
-    panel: {backgroundColor: '#2c3e50'}
-  }
-
   onChange = (text) => {
     this.setState({value: text})
   }
@@ -22,7 +16,6 @@ class App extends Component {
       <div>
         <h1>Example</h1>
         <JkReactMarkdown
-          styles={ this.styles }
           onChange={ this.onChange }
           value={ this.state.value }
         />
