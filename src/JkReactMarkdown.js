@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Panel from './components/Panel'
 import Buttons from './libs/Buttons'
-import getLines from './libs/getLines'
 import getNewText from './libs/getNewText'
 import ReactMarkdown from 'react-markdown'
 
@@ -21,11 +20,18 @@ class JkReactMarkdown extends Component {
   }
 
   state = {
-    selectionStr: '',
     selectionStart: 0,
     selectionEnd: 0,
-    selectionlines: [],
-    showResult: false
+    showResult: false,
+    textArr: this.props.value.split(/[\r\n]/)
+  }
+
+  componentWillReceiveProps (newProps) {
+    if (this.props.value !== newProps.value) {
+      this.setState({
+        textArr: newProps.value.split(/[\r\n]/)
+      })
+    }
   }
 
   onClickButton = (name) => {
@@ -39,11 +45,11 @@ class JkReactMarkdown extends Component {
     let newText = getNewText({
       button: getButtonByName(name),
       text: this.props.value,
-      selectionStr: this.state.selectionStr,
+      textArr: this.state.textArr,
       selectionStart: this.state.selectionStart,
-      selectionEnd: this.state.selectionEnd,
-      selectionlines: this.state.selectionlines
+      selectionEnd: this.state.selectionEnd
     })
+
     this.props.onChange(newText)
   }
 
@@ -52,23 +58,9 @@ class JkReactMarkdown extends Component {
   }
 
   onSelect = (e) => {
-    let {
-      selectionStart,
-      selectionEnd
-    } = e.target
-    let selectionStr = this.props.value.substring(
-      selectionStart, selectionEnd
-    )
-    let selectionlines = getLines(
-      selectionStart,
-      selectionEnd,
-      this.props.value
-    )
     this.setState({
-      selectionStr,
-      selectionStart,
-      selectionEnd,
-      selectionlines
+      selectionStart: e.target.selectionStart,
+      selectionEnd: e.target.selectionEnd
     })
   }
 

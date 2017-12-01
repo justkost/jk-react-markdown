@@ -1,6 +1,8 @@
 # jk-react-markdown
 A simple markdown editor for react
 
+![jk-react-markdown screenshot](https://raw.githubusercontent.com/justkost/jk-react-markdown/master/screenshot.png)
+
 ## Install
 
 npm install --save jk-react-markdown

@@ -1,106 +1,72 @@
-import insertTag from './insertTag'
-import removeTag from './removeTag'
 import Buttons from './Buttons'
+import insertTag from './insertTag'
+// import removeTag from './removeTag'
 const { types } = new Buttons()
 
 export default ({
   button,
   text,
-  selectionStr,
+  textArr,
   selectionStart,
-  selectionEnd,
-  selectionlines
+  selectionEnd
 }) => {
   if (typeof text !== 'string') throw new Error('text not string')
   if (typeof button !== 'object') throw new Error('button not object')
 
-  if (!selectionlines.length) {
-    selectionlines.push(selectionStart)
-  }
+  let newText = ''
 
   // Inline
   if (button.type === types.inline) {
-    let newText
-
-    (function leftTrim () {
-      if (selectionStr && /^\s/.test(selectionStr)) {
-        selectionStr = selectionStr.substring(1)
-        selectionStart = selectionStart + 1
-        leftTrim()
-      }
-    })();
-
-    (function rightTrim () {
-      if (selectionStr && /\s$/.test(selectionStr)) {
-        selectionStr = selectionStr.substring(0, selectionStr.length - 1)
-        selectionEnd = selectionEnd - 1
-        rightTrim()
-      }
-    })()
-
-    if (selectionStr) {
-      let bigString = text.substring(
-        selectionStart - button.before.length,
-        selectionEnd + button.after.length
-      )
-      if (
-        bigString.substr(0, button.before.length) === button.before &&
-        bigString.substr(bigString.length - button.after.length) === button.after
-      ) {
-        newText = removeTag({
-          text: text,
-          selectionStart: selectionStart,
-          selectionEnd: selectionEnd,
-          before: button.before,
-          after: button.after
-        })
-        return newText
-      }
-    } else {
-      if (button.name === 'img') {
-        let text = 'https://'
-        button.before += text
-      }
-    }
-
+    let { before, after } = button
     newText = insertTag({
       text: text,
-      position: selectionStart,
-      inserted: button.before
+      position: selectionEnd,
+      inserted: after
     })
     newText = insertTag({
       text: newText,
-      position: selectionEnd + button.before.length,
-      inserted: button.after
+      position: selectionStart,
+      inserted: before
     })
-    return newText
   }
   // End Inline
 
   // Block
   if (button.type === types.block) {
-    let newText = text
+    let previousLinesLength = 0
+    let nextLinesLength = 0
+    let newTextArr = []
+    let startLineIndex = 0
+    let endLineIndex = 0
 
-    selectionlines.forEach((line, index) => {
-      if (button.re.test(text)) {
-        newText = removeTag({
-          text: text,
-          selectionStart: selectionStart,
-          selectionEnd: selectionEnd,
-          re: button.re
-        })
+    textArr.forEach((line, index) => {
+      nextLinesLength += line.length + 1
+      if (
+        (selectionStart >= previousLinesLength) &&
+        (selectionStart < nextLinesLength)
+      ) {
+        startLineIndex = index
+      }
+      if (
+        (selectionEnd >= previousLinesLength) &&
+        (selectionEnd < nextLinesLength)
+      ) {
+        endLineIndex = index
+      }
+      previousLinesLength += line.length + 1
+    })
+
+    newTextArr = textArr.map((line, index) => {
+      if ((index >= startLineIndex) && (index <= endLineIndex)) {
+        return button.before + line
       } else {
-        newText = insertTag({
-          text: newText,
-          position: line + (index * button.before.length),
-          inserted: button.before
-        })
+        return line
       }
     })
 
-    return newText
+    newText = newTextArr.join('\n')
   }
   // End Block
 
-  throw new Error('button.type error')
+  return newText
 }
