@@ -1,5 +1,5 @@
 import './panel.css'
-import '../fontello/css/fontello.css'
+import '../fontello/css/fontello-jk.css'
 
 import React, { Component } from 'react'
 import Buttons from '../libs/Buttons'
