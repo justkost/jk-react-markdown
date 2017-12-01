@@ -24,17 +24,28 @@ class Panel extends Component {
     let stylePanel = style.panel || {}
     let buttonsList = list.map((button, index) => {
       let className = 'JkReactMarkdown__panel-btn'
+      let text = ''
       if (this.props.showResult) {
         className += ' JkReactMarkdown__panel-btn--disabled'
       }
+      switch (button.name) {
+        case 'h1': text = 1
+          break
+        case 'h2': text = 2
+          break
+        case 'h3': text = 3
+          break
+        case 'h4': text = 4
+          break
+      }
       return (
-        <a href="#"
+        <button
           key={ button.name }
           onClick={ this.onClick(button.name) }
           title={ button.title }
           className={ className }>
-          <i className={ button.symbol }></i>
-        </a>
+          <i className={ button.symbol }></i> { text }
+        </button>
       )
     })
 
@@ -50,12 +61,12 @@ class Panel extends Component {
           { buttonsList }
         </div>
         <div className="JkReactMarkdown__panel-right">
-          <a href="#"
+          <button
             onClick={ this.onClick('showResult') }
             title="Result"
             className="JkReactMarkdown__panel-btn JkReactMarkdown__panel-btn-result">
             { iconResult }
-          </a>
+          </button>
         </div>
       </div>
     )

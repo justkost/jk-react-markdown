@@ -1,17 +1,17 @@
 .JkReactMarkdown__panel{
   background: #333;
   display: flex;
+  justify-content: space-between;
 }
 
 .JkReactMarkdown__panel-left{
   display: flex;
-  flex-basis: 80%;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .JkReactMarkdown__panel-right{
   display: flex;
-  flex-basis: 20%;
   justify-content: flex-end;
 }
 
@@ -20,11 +20,15 @@
   padding: 5px;
   text-decoration: none;
   color: #eee;
+  border: none;
   border-right: 1px solid #666;
-  font-size: 14px;
+  background: transparent;
+  font-size: 13px;
   flex-basis: 50px;
+  min-width: 50px;
   text-align: center;
   outline: none;
+  cursor: pointer;
 }
 .JkReactMarkdown__panel-btn-result{
   border-right: none;

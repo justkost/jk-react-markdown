@@ -6,8 +6,24 @@ class Buttons {
 
   list = [
     {
+      name: 'h1',
+      title: 'Header 1',
+      symbol: 'icon-header',
+      type: this.types.block,
+      before: '# ',
+      re: /^#\s+/
+    },
+    {
+      name: 'h2',
+      title: 'Header 2',
+      symbol: 'icon-header',
+      type: this.types.block,
+      before: '## ',
+      re: /^##\s+/
+    },
+    {
       name: 'h3',
-      title: 'Header',
+      title: 'Header 3',
       symbol: 'icon-header',
       type: this.types.block,
       before: '### ',
