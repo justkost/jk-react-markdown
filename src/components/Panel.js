@@ -38,15 +38,23 @@ class Panel extends Component {
       )
     })
 
+    let iconResult = this.props.showResult ? (
+      <i className="icon-eye-off"></i>
+    ) : (
+      <i className="icon-eye"></i>
+    )
+
     return (
       <div className="JkReactMarkdown__panel" style={ stylePanel }>
-        <div className="JkReactMarkdown__panel-inner">
+        <div className="JkReactMarkdown__panel-left">
           { buttonsList }
+        </div>
+        <div className="JkReactMarkdown__panel-right">
           <a href="#"
             onClick={ this.onClick('showResult') }
             title="Result"
-            className="JkReactMarkdown__panel-btn">
-            <i className="icon-eye"></i>
+            className="JkReactMarkdown__panel-btn JkReactMarkdown__panel-btn-result">
+            { iconResult }
           </a>
         </div>
       </div>
