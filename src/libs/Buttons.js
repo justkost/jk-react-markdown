@@ -38,6 +38,14 @@ class Buttons {
       re: /^[\*\-]\s+/ // eslint-disable-line
     },
     {
+      name: 'ol',
+      title: 'List',
+      symbol: 'icon-jk-list-numbered',
+      type: this.types.block,
+      before: '1. ',
+      re: /^\d\.\s+/ // eslint-disable-line
+    },
+    {
       name: 'i',
       title: 'Italic',
       symbol: 'icon-jk-italic',

@@ -57,6 +57,12 @@ export default ({
     })
 
     newTextArr = textArr.map((line, index) => {
+      if (
+        (button.name === 'ol') &&
+        (index >= startLineIndex) && (index <= endLineIndex)
+      ) {
+        return `${index + 1}. ${line}`
+      }
       if ((index >= startLineIndex) && (index <= endLineIndex)) {
         return button.before + line
       } else {
