@@ -8,7 +8,7 @@ class Buttons {
     {
       name: 'h1',
       title: 'Header 1',
-      symbol: 'icon-header',
+      symbol: 'icon-jk-header',
       type: this.types.block,
       before: '# ',
       re: /^#\s+/
@@ -16,7 +16,7 @@ class Buttons {
     {
       name: 'h2',
       title: 'Header 2',
-      symbol: 'icon-header',
+      symbol: 'icon-jk-header',
       type: this.types.block,
       before: '## ',
       re: /^##\s+/
@@ -24,7 +24,7 @@ class Buttons {
     {
       name: 'h3',
       title: 'Header 3',
-      symbol: 'icon-header',
+      symbol: 'icon-jk-header',
       type: this.types.block,
       before: '### ',
       re: /^###\s+/
@@ -32,7 +32,7 @@ class Buttons {
     {
       name: 'ul',
       title: 'List',
-      symbol: 'icon-list-bullet',
+      symbol: 'icon-jk-list-bullet',
       type: this.types.block,
       before: '* ',
       re: /^[\*\-]\s+/ // eslint-disable-line
@@ -40,7 +40,7 @@ class Buttons {
     {
       name: 'i',
       title: 'Italic',
-      symbol: 'icon-italic',
+      symbol: 'icon-jk-italic',
       type: this.types.inline,
       before: '_',
       after: '_'
@@ -48,7 +48,7 @@ class Buttons {
     {
       name: 'b',
       title: 'Bold',
-      symbol: 'icon-bold',
+      symbol: 'icon-jk-bold',
       type: this.types.inline,
       before: '**',
       after: '**'
@@ -56,7 +56,7 @@ class Buttons {
     {
       name: 'a',
       title: 'Link',
-      symbol: 'icon-link',
+      symbol: 'icon-jk-link',
       type: this.types.inline,
       before: '[',
       after: '](https://)'
@@ -64,7 +64,7 @@ class Buttons {
     {
       name: 'img',
       title: 'Image',
-      symbol: 'icon-picture',
+      symbol: 'icon-jk-picture',
       type: this.types.inline,
       before: '![alt text](',
       after: ')'

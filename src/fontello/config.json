@@ -8,151 +8,151 @@
   "glyphs": [
     {
       "uid": "02cca871bb69da75e8ee286b7055832c",
-      "css": "bold",
+      "css": "jk-bold",
       "code": 59392,
       "src": "fontawesome"
     },
     {
       "uid": "a8cb1c217f02b073db3670c061cc54d2",
-      "css": "italic",
+      "css": "jk-italic",
       "code": 59393,
       "src": "fontawesome"
     },
     {
       "uid": "a2a74f5e7b7d9ba054897d8c795a326a",
-      "css": "list-bullet",
+      "css": "jk-list-bullet",
       "code": 61642,
       "src": "fontawesome"
     },
     {
       "uid": "f6766a8b042c2453a4e153af03294383",
-      "css": "list-numbered",
+      "css": "jk-list-numbered",
       "code": 61643,
       "src": "fontawesome"
     },
     {
       "uid": "0c708edd8fae2376b3370aa56d40cf9e",
-      "css": "header",
+      "css": "jk-header",
       "code": 61916,
       "src": "fontawesome"
     },
     {
       "uid": "0ddd3e8201ccc7d41f7b7c9d27eca6c1",
-      "css": "link",
+      "css": "jk-link",
       "code": 59394,
       "src": "fontawesome"
     },
     {
       "uid": "c5fd349cbd3d23e4ade333789c29c729",
-      "css": "eye",
+      "css": "jk-eye",
       "code": 59395,
       "src": "fontawesome"
     },
     {
       "uid": "381da2c2f7fd51f8de877c044d7f439d",
-      "css": "picture",
+      "css": "jk-picture",
       "code": 59396,
       "src": "fontawesome"
     },
     {
       "uid": "7fd683b2c518ceb9e5fa6757f2276faa",
-      "css": "eye-off",
+      "css": "jk-eye-off",
       "code": 59397,
       "src": "fontawesome"
     },
     {
       "uid": "8fb55fd696d9a0f58f3b27c1d8633750",
-      "css": "table",
+      "css": "jk-table",
       "code": 61646,
       "src": "fontawesome"
     },
     {
       "uid": "dd492243d64e21dfe16a92452f7861cb",
-      "css": "th-large",
+      "css": "jk-th-large",
       "code": 59398,
       "src": "fontawesome"
     },
     {
       "uid": "f4f0e849b805be1f6d76b65581cb3b8b",
-      "css": "align-left",
+      "css": "jk-align-left",
       "code": 59399,
       "src": "fontawesome"
     },
     {
       "uid": "ae6336c46d73af999fe7460c089abb4d",
-      "css": "align-center",
+      "css": "jk-align-center",
       "code": 59400,
       "src": "fontawesome"
     },
     {
       "uid": "e1e7306b47c3c5e6faecce9d32571381",
-      "css": "align-right",
+      "css": "jk-align-right",
       "code": 59401,
       "src": "fontawesome"
     },
     {
       "uid": "4d2dfc45d8176b1f26aed973fa84a91e",
-      "css": "indent-right",
+      "css": "jk-indent-right",
       "code": 59402,
       "src": "fontawesome"
     },
     {
       "uid": "594e9271c08ff732c04b3bf3117b9040",
-      "css": "indent-left",
+      "css": "jk-indent-left",
       "code": 59403,
       "src": "fontawesome"
     },
     {
       "uid": "25a81737628d1e654a30ad412d7d6dd7",
-      "css": "align-justify",
+      "css": "jk-align-justify",
       "code": 59404,
       "src": "fontawesome"
     },
     {
       "uid": "4e88371fb8857dacc1f66afe6314e426",
-      "css": "superscript",
+      "css": "jk-superscript",
       "code": 61739,
       "src": "fontawesome"
     },
     {
       "uid": "3d1c929dbc966992185ce749548c1b2c",
-      "css": "subscript",
+      "css": "jk-subscript",
       "code": 61740,
       "src": "fontawesome"
     },
     {
       "uid": "d4a4a38a40b728f46dad1de4ac950231",
-      "css": "underline",
+      "css": "jk-underline",
       "code": 61645,
       "src": "fontawesome"
     },
     {
       "uid": "61c242c9e2134d5864d7fdd57b3c9289",
-      "css": "strike",
+      "css": "jk-strike",
       "code": 61644,
       "src": "fontawesome"
     },
     {
       "uid": "44e04715aecbca7f266a17d5a7863c68",
-      "css": "plus",
+      "css": "jk-plus",
       "code": 59405,
       "src": "fontawesome"
     },
     {
       "uid": "861ab06e455e2de3232ebef67d60d708",
-      "css": "minus",
+      "css": "jk-minus",
       "code": 59406,
       "src": "fontawesome"
     },
     {
       "uid": "b013f6403e5ab0326614e68d1850fd6b",
-      "css": "resize-full-alt",
+      "css": "jk-resize-full-alt",
       "code": 61618,
       "src": "fontawesome"
     },
     {
       "uid": "3c24ee33c9487bbf18796ca6dffa1905",
-      "css": "resize-small",
+      "css": "jk-resize-small",
       "code": 59407,
       "src": "fontawesome"
     }
