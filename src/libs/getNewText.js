@@ -13,10 +13,13 @@ export default ({
   if (typeof text !== 'string') throw new Error('text not string')
   if (typeof button !== 'object') throw new Error('button not object')
 
-  let newText = ''
+  let newText = text
 
   // Inline
-  if (button.type === types.inline) {
+  if (
+    (button.type === types.inline) &&
+    (selectionStart !== selectionEnd)
+  ) {
     let { before, after } = button
     newText = insertTag({
       text: text,
