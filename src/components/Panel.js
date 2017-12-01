@@ -50,9 +50,9 @@ class Panel extends Component {
     })
 
     let iconResult = this.props.showResult ? (
-      <i className="icon-eye-off"></i>
+      <i className="icon-jk-eye-off"></i>
     ) : (
-      <i className="icon-eye"></i>
+      <i className="icon-jk-eye"></i>
     )
 
     return (
