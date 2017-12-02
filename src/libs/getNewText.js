@@ -1,6 +1,7 @@
 import Buttons from './Buttons'
 import insertTag from './insertTag'
 // import removeTag from './removeTag'
+import getRangeLines from './getRangeLines'
 const { types } = new Buttons()
 
 export default ({
@@ -36,37 +37,18 @@ export default ({
 
   // Block
   if (button.type === types.block) {
-    let previousLinesLength = 0
-    let nextLinesLength = 0
     let newTextArr = []
-    let startLineIndex = 0
-    let endLineIndex = 0
 
-    textArr.forEach((line, index) => {
-      nextLinesLength += line.length + 1
-      if (
-        (selectionStart >= previousLinesLength) &&
-        (selectionStart < nextLinesLength)
-      ) {
-        startLineIndex = index
-      }
-      if (
-        (selectionEnd >= previousLinesLength) &&
-        (selectionEnd < nextLinesLength)
-      ) {
-        endLineIndex = index
-      }
-      previousLinesLength += line.length + 1
-    })
+    let rangeLines = getRangeLines(textArr, selectionStart, selectionEnd)
 
     newTextArr = textArr.map((line, index) => {
       if (
         (button.name === 'ol') &&
-        (index >= startLineIndex) && (index <= endLineIndex)
+        (index >= rangeLines.start) && (index <= rangeLines.end)
       ) {
         return `${index + 1}. ${line}`
       }
-      if ((index >= startLineIndex) && (index <= endLineIndex)) {
+      if ((index >= rangeLines.start) && (index <= rangeLines.end)) {
         return button.before + line
       } else {
         return line

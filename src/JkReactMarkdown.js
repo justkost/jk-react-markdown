@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Panel from './components/Panel'
 import Buttons from './libs/Buttons'
 import getNewText from './libs/getNewText'
+import buttonsDetector from './libs/buttonsDetector'
 import ReactMarkdown from 'react-markdown'
 
 const { getButtonByName } = new Buttons()
@@ -58,6 +59,13 @@ class JkReactMarkdown extends Component {
   }
 
   onSelect = (e) => {
+    let selectionButtons = buttonsDetector(
+      this.props.value,
+      this.state.textArr,
+      e.target.selectionStart,
+      e.target.selectionEnd
+    )
+    console.log('selectionButtons', selectionButtons)
     this.setState({
       selectionStart: e.target.selectionStart,
       selectionEnd: e.target.selectionEnd

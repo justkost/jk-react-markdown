@@ -51,7 +51,8 @@ class Buttons {
       symbol: 'icon-jk-italic',
       type: this.types.inline,
       before: '_',
-      after: '_'
+      after: '_',
+      re: /^_.+_$/
     },
     {
       name: 'b',
@@ -59,7 +60,8 @@ class Buttons {
       symbol: 'icon-jk-bold',
       type: this.types.inline,
       before: '**',
-      after: '**'
+      after: '**',
+      re: /^\*\*.+\*\*$/
     },
     {
       name: 'a',
