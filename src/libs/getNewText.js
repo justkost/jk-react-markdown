@@ -61,12 +61,13 @@ export default ({
       })
     } else {
       // Add mode
+      let olCounter = 0
       newTextArr = textArr.map((line, index) => {
         if (
           (name === 'ol') &&
           (index >= rangeLines.start) && (index <= rangeLines.end)
         ) {
-          return `${index + 1}. ${line}`
+          return `${++olCounter}. ${line}`
         }
         if ((index >= rangeLines.start) && (index <= rangeLines.end)) {
           return before + line
