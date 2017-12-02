@@ -10,7 +10,8 @@ class Panel extends Component {
   static propTypes = {
     onClick: PropTypes.func,
     showResult: PropTypes.bool,
-    style: PropTypes.object
+    style: PropTypes.object,
+    selectionButtons: PropTypes.array
   }
 
   onClick = (name) => (e) => {
@@ -27,6 +28,9 @@ class Panel extends Component {
       let text = ''
       if (this.props.showResult) {
         className += ' JkReactMarkdown__panel-btn--disabled'
+      }
+      if (this.props.selectionButtons.includes(button.name)) {
+        className += ' JkReactMarkdown__panel-btn--active'
       }
       switch (button.name) {
         case 'h1': text = 1

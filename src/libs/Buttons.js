@@ -38,12 +38,21 @@ class Buttons {
       re: /^[\*\-]\s+/ // eslint-disable-line
     },
     {
+      name: 'ol',
+      title: 'List',
+      symbol: 'icon-jk-list-numbered',
+      type: this.types.block,
+      before: '1. ',
+      re: /^\d\.\s+/ // eslint-disable-line
+    },
+    {
       name: 'i',
       title: 'Italic',
       symbol: 'icon-jk-italic',
       type: this.types.inline,
       before: '_',
-      after: '_'
+      after: '_',
+      re: /^_.+_$/
     },
     {
       name: 'b',
@@ -51,7 +60,8 @@ class Buttons {
       symbol: 'icon-jk-bold',
       type: this.types.inline,
       before: '**',
-      after: '**'
+      after: '**',
+      re: /^\*\*.+\*\*$/
     },
     {
       name: 'a',
