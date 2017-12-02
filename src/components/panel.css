@@ -30,6 +30,9 @@
   outline: none;
   cursor: pointer;
 }
+.JkReactMarkdown__panel-btn--active{
+  background: rgba(255,255,255, 0.2);
+}
 .JkReactMarkdown__panel-btn-result{
   border-right: none;
   border-left: 1px solid #666;

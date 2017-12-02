@@ -1,6 +1,5 @@
 import Buttons from './Buttons'
 import insertTag from './insertTag'
-// import removeTag from './removeTag'
 import getRangeLines from './getRangeLines'
 const { types } = new Buttons()
 
@@ -9,19 +8,31 @@ export default ({
   text,
   textArr,
   selectionStart,
-  selectionEnd
+  selectionEnd,
+  selectionButtons
 }) => {
   if (typeof text !== 'string') throw new Error('text not string')
   if (typeof button !== 'object') throw new Error('button not object')
 
   let newText = text
+  let { before, after, name, type, re } = button
 
   // Inline
   if (
-    (button.type === types.inline) &&
+    (type === types.inline) &&
     (selectionStart !== selectionEnd)
   ) {
-    let { before, after } = button
+    // Remove mode
+    if (selectionButtons.includes(name)) {
+      let startString = text.substring(0, selectionStart)
+      let middleString = text.substring(
+        selectionStart + before.length,
+        selectionEnd - after.length
+      )
+      let endString = text.substring(selectionEnd)
+      return startString + middleString.replace(re, '') + endString
+    }
+    // Add mode
     newText = insertTag({
       text: text,
       position: selectionEnd,
@@ -36,25 +47,34 @@ export default ({
   // End Inline
 
   // Block
-  if (button.type === types.block) {
+  if (type === types.block) {
     let newTextArr = []
-
     let rangeLines = getRangeLines(textArr, selectionStart, selectionEnd)
-
-    newTextArr = textArr.map((line, index) => {
-      if (
-        (button.name === 'ol') &&
-        (index >= rangeLines.start) && (index <= rangeLines.end)
-      ) {
-        return `${index + 1}. ${line}`
-      }
-      if ((index >= rangeLines.start) && (index <= rangeLines.end)) {
-        return button.before + line
-      } else {
-        return line
-      }
-    })
-
+    // Remove mode
+    if (selectionButtons.includes(name)) {
+      newTextArr = textArr.map((line, index) => {
+        if ((index >= rangeLines.start) && (index <= rangeLines.end)) {
+          return line.replace(re, '')
+        } else {
+          return line
+        }
+      })
+    } else {
+      // Add mode
+      newTextArr = textArr.map((line, index) => {
+        if (
+          (name === 'ol') &&
+          (index >= rangeLines.start) && (index <= rangeLines.end)
+        ) {
+          return `${index + 1}. ${line}`
+        }
+        if ((index >= rangeLines.start) && (index <= rangeLines.end)) {
+          return before + line
+        } else {
+          return line
+        }
+      })
+    }
     newText = newTextArr.join('\n')
   }
   // End Block

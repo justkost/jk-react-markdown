@@ -24,7 +24,8 @@ class JkReactMarkdown extends Component {
     selectionStart: 0,
     selectionEnd: 0,
     showResult: false,
-    textArr: this.props.value.split(/[\r\n]/)
+    textArr: this.props.value.split(/[\r\n]/),
+    selectionButtons: []
   }
 
   componentWillReceiveProps (newProps) {
@@ -48,7 +49,8 @@ class JkReactMarkdown extends Component {
       text: this.props.value,
       textArr: this.state.textArr,
       selectionStart: this.state.selectionStart,
-      selectionEnd: this.state.selectionEnd
+      selectionEnd: this.state.selectionEnd,
+      selectionButtons: this.state.selectionButtons
     })
 
     this.props.onChange(newText)
@@ -65,10 +67,10 @@ class JkReactMarkdown extends Component {
       e.target.selectionStart,
       e.target.selectionEnd
     )
-    console.log('selectionButtons', selectionButtons)
     this.setState({
       selectionStart: e.target.selectionStart,
-      selectionEnd: e.target.selectionEnd
+      selectionEnd: e.target.selectionEnd,
+      selectionButtons: selectionButtons
     })
   }
 
@@ -100,7 +102,9 @@ class JkReactMarkdown extends Component {
         <Panel
           onClick={ this.onClickButton }
           style={ this.props.styles }
-          showResult={ this.state.showResult }/>
+          showResult={ this.state.showResult }
+          selectionButtons={ this.state.selectionButtons }
+        />
         { this.state.showResult ? result : editor }
       </div>
     )
