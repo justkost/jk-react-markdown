@@ -1,5 +1,5 @@
 # jk-react-markdown
-A simple markdown editor for react
+Simple markdown editor for react with preview
 
 ![jk-react-markdown screenshot](https://raw.githubusercontent.com/justkost/jk-react-markdown/master/screenshot.png)
 
