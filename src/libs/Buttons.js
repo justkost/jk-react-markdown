@@ -6,6 +6,24 @@ class Buttons {
 
   list = [
     {
+      name: 'b',
+      title: 'Bold',
+      symbol: 'icon-jk-bold',
+      type: this.types.inline,
+      before: '**',
+      after: '**',
+      re: /^\*\*.+\*\*$/
+    },
+    {
+      name: 'i',
+      title: 'Italic',
+      symbol: 'icon-jk-italic',
+      type: this.types.inline,
+      before: '_',
+      after: '_',
+      re: /^_.+_$/
+    },
+    {
       name: 'h1',
       title: 'Header 1',
       symbol: 'icon-jk-header',
@@ -44,24 +62,6 @@ class Buttons {
       type: this.types.block,
       before: '1. ',
       re: /^\d\.\s+/ // eslint-disable-line
-    },
-    {
-      name: 'i',
-      title: 'Italic',
-      symbol: 'icon-jk-italic',
-      type: this.types.inline,
-      before: '_',
-      after: '_',
-      re: /^_.+_$/
-    },
-    {
-      name: 'b',
-      title: 'Bold',
-      symbol: 'icon-jk-bold',
-      type: this.types.inline,
-      before: '**',
-      after: '**',
-      re: /^\*\*.+\*\*$/
     },
     {
       name: 'a',

@@ -30,9 +30,7 @@
   outline: none;
   cursor: pointer;
 }
-.JkReactMarkdown__panel-btn--active{
-  background: rgba(255,255,255, 0.2);
-}
+
 .JkReactMarkdown__panel-btn-result{
   border-right: none;
   border-left: 1px solid #666;
@@ -40,20 +38,32 @@
 
 .JkReactMarkdown__panel-btn:hover{
   color: #eee;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.3);
 }
 
 .JkReactMarkdown__panel-btn:focus{
   color: #eee;
-  background: rgba(0,0,0,0.1);
+  background: transparent;
+}
+
+.JkReactMarkdown__panel-btn--active{
+  color: #eee;
+  background: rgba(0,0,0,0.3);
+}
+.JkReactMarkdown__panel-btn--active:focus{
+  color: #eee;
+  background: rgba(0,0,0,0.3);
 }
 
 .JkReactMarkdown__panel-btn--disabled{
   color: #666;
+  background: transparent;
 }
 .JkReactMarkdown__panel-btn--disabled:hover{
   color: #666;
+  background: transparent;
 }
 .JkReactMarkdown__panel-btn--disabled:focus{
   color: #666;
+  background: transparent;
 }
