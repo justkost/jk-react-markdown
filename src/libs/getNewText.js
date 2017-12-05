@@ -1,7 +1,7 @@
 import Buttons from './Buttons'
 import insertTag from './insertTag'
 import getRangeLines from './getRangeLines'
-const { types } = new Buttons()
+const { types, getButtonByName } = new Buttons()
 
 export default ({
   button,
@@ -60,9 +60,33 @@ export default ({
         }
       })
     } else {
+      let replaceButton = null
+
+      selectionButtons.forEach(selectionName => {
+        let selectionButton = getButtonByName(selectionName)
+        if (
+          (selectionButton.group && button.group) &&
+          (selectionButton.group === button.group)
+        ) {
+          replaceButton = selectionButton
+        }
+      })
+
+      // Change mode
+      if (replaceButton) {
+        newTextArr = textArr.map((line, index) => {
+          if ((index >= rangeLines.start) && (index <= rangeLines.end)) {
+            return line.replace(replaceButton.re, '')
+          } else {
+            return line
+          }
+        })
+      }
+
       // Add mode
       let olCounter = 0
-      newTextArr = textArr.map((line, index) => {
+      let tmpTextArr = newTextArr.length ? newTextArr : textArr
+      newTextArr = tmpTextArr.map((line, index) => {
         if (
           (name === 'ol') &&
           (index >= rangeLines.start) && (index <= rangeLines.end)
