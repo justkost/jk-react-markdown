@@ -29,7 +29,8 @@ class Buttons {
       symbol: 'icon-jk-header',
       type: this.types.block,
       before: '# ',
-      re: /^#\s+/
+      re: /^#\s+/,
+      group: 'header'
     },
     {
       name: 'h2',
@@ -37,7 +38,8 @@ class Buttons {
       symbol: 'icon-jk-header',
       type: this.types.block,
       before: '## ',
-      re: /^##\s+/
+      re: /^##\s+/,
+      group: 'header'
     },
     {
       name: 'h3',
@@ -45,7 +47,8 @@ class Buttons {
       symbol: 'icon-jk-header',
       type: this.types.block,
       before: '### ',
-      re: /^###\s+/
+      re: /^###\s+/,
+      group: 'header'
     },
     {
       name: 'ul',
@@ -53,7 +56,8 @@ class Buttons {
       symbol: 'icon-jk-list-bullet',
       type: this.types.block,
       before: '* ',
-      re: /^[\*\-]\s+/ // eslint-disable-line
+      re: /^[\*\-]\s+/, // eslint-disable-line
+      group: 'list'
     },
     {
       name: 'ol',
@@ -61,7 +65,8 @@ class Buttons {
       symbol: 'icon-jk-list-numbered',
       type: this.types.block,
       before: '1. ',
-      re: /^\d\.\s+/ // eslint-disable-line
+      re: /^\d\.\s+/, // eslint-disable-line
+      group: 'list'
     },
     {
       name: 'a',
