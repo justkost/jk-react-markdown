@@ -1,15 +1,31 @@
 class Buttons {
-  types = {
+  getButtonByName = (name) => {
+    for (let i = 0; i < this._list.length; i++) {
+      if (this._list[i].name === name) {
+        return this._list[i]
+      }
+    }
+  }
+
+  getList = () => {
+    return this._list
+  }
+
+  getTypes = () => {
+    return this._types
+  }
+
+  _types = {
     block: 'block',
     inline: 'inline'
   }
 
-  list = [
+  _list = [
     {
       name: 'b',
       title: 'Bold',
       symbol: 'icon-jk-bold',
-      type: this.types.inline,
+      type: this._types.inline,
       before: '**',
       after: '**',
       re: /^\*\*.+\*\*$/
@@ -18,7 +34,7 @@ class Buttons {
       name: 'i',
       title: 'Italic',
       symbol: 'icon-jk-italic',
-      type: this.types.inline,
+      type: this._types.inline,
       before: '_',
       after: '_',
       re: /^_.+_$/
@@ -27,7 +43,7 @@ class Buttons {
       name: 'h1',
       title: 'Header 1',
       symbol: 'icon-jk-header',
-      type: this.types.block,
+      type: this._types.block,
       before: '# ',
       re: /^#\s+/,
       group: 'header'
@@ -36,7 +52,7 @@ class Buttons {
       name: 'h2',
       title: 'Header 2',
       symbol: 'icon-jk-header',
-      type: this.types.block,
+      type: this._types.block,
       before: '## ',
       re: /^##\s+/,
       group: 'header'
@@ -45,7 +61,7 @@ class Buttons {
       name: 'h3',
       title: 'Header 3',
       symbol: 'icon-jk-header',
-      type: this.types.block,
+      type: this._types.block,
       before: '### ',
       re: /^###\s+/,
       group: 'header'
@@ -54,7 +70,7 @@ class Buttons {
       name: 'ul',
       title: 'List',
       symbol: 'icon-jk-list-bullet',
-      type: this.types.block,
+      type: this._types.block,
       before: '* ',
       re: /^[\*\-]\s+/, // eslint-disable-line
       group: 'list'
@@ -63,7 +79,7 @@ class Buttons {
       name: 'ol',
       title: 'List',
       symbol: 'icon-jk-list-numbered',
-      type: this.types.block,
+      type: this._types.block,
       before: '1. ',
       re: /^\d\.\s+/, // eslint-disable-line
       group: 'list'
@@ -72,7 +88,7 @@ class Buttons {
       name: 'a',
       title: 'Link',
       symbol: 'icon-jk-link',
-      type: this.types.inline,
+      type: this._types.inline,
       before: '[',
       after: '](https://)'
     },
@@ -80,19 +96,11 @@ class Buttons {
       name: 'img',
       title: 'Image',
       symbol: 'icon-jk-picture',
-      type: this.types.inline,
+      type: this._types.inline,
       before: '![alt text](',
       after: ')'
     }
   ]
-
-  getButtonByName = (name) => {
-    for (let i = 0; i < this.list.length; i++) {
-      if (this.list[i].name === name) {
-        return this.list[i]
-      }
-    }
-  }
 }
 
 export default Buttons

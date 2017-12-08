@@ -8,7 +8,11 @@ import getNewText from './libs/getNewText'
 import buttonsDetector from './libs/buttonsDetector'
 import ReactMarkdown from 'react-markdown'
 
-const { getButtonByName } = new Buttons()
+const {
+  getButtonByName,
+  getList,
+  getTypes
+} = new Buttons()
 
 class JkReactMarkdown extends Component {
   static propTypes = {
@@ -50,7 +54,9 @@ class JkReactMarkdown extends Component {
       textArr: this.state.textArr,
       selectionStart: this.state.selectionStart,
       selectionEnd: this.state.selectionEnd,
-      selectionButtons: this.state.selectionButtons
+      selectionButtons: this.state.selectionButtons,
+      getButtonByName: getButtonByName,
+      types: getTypes()
     })
 
     this.props.onChange(newText)
@@ -61,12 +67,14 @@ class JkReactMarkdown extends Component {
   }
 
   onSelect = (e) => {
-    let selectionButtons = buttonsDetector(
-      this.props.value,
-      this.state.textArr,
-      e.target.selectionStart,
-      e.target.selectionEnd
-    )
+    let selectionButtons = buttonsDetector({
+      text: this.props.value,
+      textArr: this.state.textArr,
+      selectionStart: e.target.selectionStart,
+      selectionEnd: e.target.selectionEnd,
+      list: getList(),
+      types: getTypes()
+    })
     this.setState({
       selectionStart: e.target.selectionStart,
       selectionEnd: e.target.selectionEnd,
@@ -81,6 +89,7 @@ class JkReactMarkdown extends Component {
     let rows = this.props.rows ? this.props.rows : '5'
     let styleEditor = styles.editor || {}
     let styleResult = styles.result || {}
+    let list = getList()
     let editor = (
       <textarea
         cols={ cols }
@@ -104,6 +113,7 @@ class JkReactMarkdown extends Component {
           style={ this.props.styles }
           showResult={ this.state.showResult }
           selectionButtons={ this.state.selectionButtons }
+          list={ list }
         />
         { this.state.showResult ? result : editor }
       </div>

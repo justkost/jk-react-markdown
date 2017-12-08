@@ -1,7 +1,5 @@
-import Buttons from './Buttons'
 import insertTag from './insertTag'
 import getRangeLines from './getRangeLines'
-const { types, getButtonByName } = new Buttons()
 
 export default ({
   button,
@@ -9,7 +7,9 @@ export default ({
   textArr,
   selectionStart,
   selectionEnd,
-  selectionButtons
+  selectionButtons,
+  getButtonByName,
+  types
 }) => {
   if (typeof text !== 'string') throw new Error('text not string')
   if (typeof button !== 'object') throw new Error('button not object')
