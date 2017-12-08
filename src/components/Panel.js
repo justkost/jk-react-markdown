@@ -2,16 +2,15 @@ import './panel.css'
 import '../fontello/css/fontello-jk.css'
 
 import React, { Component } from 'react'
-import Buttons from '../libs/Buttons'
 import PropTypes from 'prop-types'
-const { list } = new Buttons()
 
 class Panel extends Component {
   static propTypes = {
     onClick: PropTypes.func,
     showResult: PropTypes.bool,
     style: PropTypes.object,
-    selectionButtons: PropTypes.array
+    selectionButtons: PropTypes.array,
+    list: PropTypes.array
   }
 
   onClick = (name) => (e) => {
@@ -23,7 +22,7 @@ class Panel extends Component {
     let { style } = this.props
     style = style || {}
     let stylePanel = style.panel || {}
-    let buttonsList = list.map((button, index) => {
+    let buttonsList = this.props.list.map((button, index) => {
       let className = 'JkReactMarkdown__panel-btn'
       let text = ''
       if (this.props.showResult) {
@@ -40,6 +39,10 @@ class Panel extends Component {
         case 'h3': text = 3
           break
         case 'h4': text = 4
+          break
+        case 'h5': text = 5
+          break
+        case 'h6': text = 6
           break
       }
       return (

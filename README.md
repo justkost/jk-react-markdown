@@ -29,6 +29,10 @@ import Editor from 'jk-react-markdown'
 * rows: PropTypes.string
 * value: PropTypes.string
 * onChange: PropTypes.func
+* buttons: PropTypes.array
+
+**buttons property** - is intended for sorting and filtering.
+Full list: ['b', 'i', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'a', 'img']
 
 ## Styles
 

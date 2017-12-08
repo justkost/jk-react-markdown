@@ -1,8 +1,13 @@
 import getRangeLines from './getRangeLines'
-import Buttons from './Buttons'
-const { list, types } = new Buttons()
 
-export default (text, textArr, selectionStart, selectionEnd) => {
+export default ({
+  text,
+  textArr,
+  selectionStart,
+  selectionEnd,
+  list,
+  types
+}) => {
   let selectionString = text.substring(selectionStart, selectionEnd)
   let rangeLines = getRangeLines(textArr, selectionStart, selectionEnd)
   let result = []
