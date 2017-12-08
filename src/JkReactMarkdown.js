@@ -21,7 +21,8 @@ class JkReactMarkdown extends Component {
     rows: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
-    styles: PropTypes.object
+    styles: PropTypes.object,
+    buttons: PropTypes.array
   }
 
   state = {
@@ -89,7 +90,6 @@ class JkReactMarkdown extends Component {
     let rows = this.props.rows ? this.props.rows : '5'
     let styleEditor = styles.editor || {}
     let styleResult = styles.result || {}
-    let list = getList()
     let editor = (
       <textarea
         cols={ cols }
@@ -113,7 +113,7 @@ class JkReactMarkdown extends Component {
           style={ this.props.styles }
           showResult={ this.state.showResult }
           selectionButtons={ this.state.selectionButtons }
-          list={ list }
+          list={ getList(this.props.buttons) }
         />
         { this.state.showResult ? result : editor }
       </div>

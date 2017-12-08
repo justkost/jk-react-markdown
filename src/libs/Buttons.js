@@ -7,13 +7,25 @@ class Buttons {
     }
   }
 
-  getList = () => {
-    return this._list
+  getList = (buttons) => {
+    let listNames = this._defaultButtons
+    if (buttons && buttons.length) {
+      listNames = buttons
+    }
+    let result = []
+    listNames.forEach(buttonName => {
+      this._list.forEach(button => {
+        if (button.name === buttonName) result.push(button)
+      })
+    })
+    return result
   }
 
   getTypes = () => {
     return this._types
   }
+
+  _defaultButtons = ['b', 'i', 'h1', 'h2', 'h3', 'ul', 'ol', 'a', 'img']
 
   _types = {
     block: 'block',
@@ -64,6 +76,33 @@ class Buttons {
       type: this._types.block,
       before: '### ',
       re: /^###\s+/,
+      group: 'header'
+    },
+    {
+      name: 'h4',
+      title: 'Header 4',
+      symbol: 'icon-jk-header',
+      type: this._types.block,
+      before: '#### ',
+      re: /^####\s+/,
+      group: 'header'
+    },
+    {
+      name: 'h5',
+      title: 'Header 5',
+      symbol: 'icon-jk-header',
+      type: this._types.block,
+      before: '##### ',
+      re: /^#####\s+/,
+      group: 'header'
+    },
+    {
+      name: 'h6',
+      title: 'Header 6',
+      symbol: 'icon-jk-header',
+      type: this._types.block,
+      before: '###### ',
+      re: /^######\s+/,
       group: 'header'
     },
     {

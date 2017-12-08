@@ -40,6 +40,10 @@ class Panel extends Component {
           break
         case 'h4': text = 4
           break
+        case 'h5': text = 5
+          break
+        case 'h6': text = 6
+          break
       }
       return (
         <button
