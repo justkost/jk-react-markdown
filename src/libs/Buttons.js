@@ -25,11 +25,12 @@ class Buttons {
     return this._types
   }
 
-  _defaultButtons = ['b', 'i', 'h1', 'h2', 'h3', 'ul', 'ol', 'a', 'img']
+  _defaultButtons = ['b', 'i', 'h1', 'h2', 'h3', 'ul', 'ol', 'a', 'codeBlock']
 
   _types = {
     block: 'block',
-    inline: 'inline'
+    inline: 'inline',
+    code: 'code'
   }
 
   _list = [
@@ -55,6 +56,7 @@ class Buttons {
       name: 'h1',
       title: 'Header 1',
       symbol: 'icon-jk-header',
+      text: '1',
       type: this._types.block,
       before: '# ',
       re: /^#\s+/,
@@ -64,6 +66,7 @@ class Buttons {
       name: 'h2',
       title: 'Header 2',
       symbol: 'icon-jk-header',
+      text: '2',
       type: this._types.block,
       before: '## ',
       re: /^##\s+/,
@@ -73,6 +76,7 @@ class Buttons {
       name: 'h3',
       title: 'Header 3',
       symbol: 'icon-jk-header',
+      text: '3',
       type: this._types.block,
       before: '### ',
       re: /^###\s+/,
@@ -82,6 +86,7 @@ class Buttons {
       name: 'h4',
       title: 'Header 4',
       symbol: 'icon-jk-header',
+      text: '4',
       type: this._types.block,
       before: '#### ',
       re: /^####\s+/,
@@ -91,6 +96,7 @@ class Buttons {
       name: 'h5',
       title: 'Header 5',
       symbol: 'icon-jk-header',
+      text: '5',
       type: this._types.block,
       before: '##### ',
       re: /^#####\s+/,
@@ -100,6 +106,7 @@ class Buttons {
       name: 'h6',
       title: 'Header 6',
       symbol: 'icon-jk-header',
+      text: '6',
       type: this._types.block,
       before: '###### ',
       re: /^######\s+/,
@@ -138,6 +145,15 @@ class Buttons {
       type: this._types.inline,
       before: '![alt text](',
       after: ')'
+    },
+    {
+      name: 'codeBlock',
+      title: 'Code block',
+      symbol: '',
+      text: 'code',
+      type: this._types.code,
+      before: '```',
+      after: '```'
     }
   ]
 }
