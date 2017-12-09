@@ -41,8 +41,6 @@ class JkReactMarkdown extends Component {
   }
 
   componentDidUpdate (prevProps, prevState) {
-    console.log(this.state.showResult)
-    console.log(prevState.showResult)
     if (this.state.showResult && !prevState.showResult) {
       this.highlightCode()
     }
