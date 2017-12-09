@@ -150,9 +150,36 @@ class Buttons {
       name: 'codeBlock',
       title: 'Code block',
       symbol: '',
-      text: 'code',
+      text: 'Code',
       type: this._types.code,
       before: '```',
+      after: '```'
+    },
+    {
+      name: 'codeJavaScript',
+      title: 'Code JavaScript',
+      symbol: '',
+      text: 'JavaScript',
+      type: this._types.code,
+      before: '```javascript',
+      after: '```'
+    },
+    {
+      name: 'codePython',
+      title: 'Code Python',
+      symbol: '',
+      text: 'Python',
+      type: this._types.code,
+      before: '```python',
+      after: '```'
+    },
+    {
+      name: 'codePython',
+      title: 'Code PHP',
+      symbol: '',
+      text: 'PHP',
+      type: this._types.code,
+      before: '```php',
       after: '```'
     }
   ]

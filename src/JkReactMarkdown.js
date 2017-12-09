@@ -1,12 +1,19 @@
 import './jkReactMarkdown.css'
+import 'highlight.js/styles/default.css'
 
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import Panel from './components/Panel'
 import Buttons from './libs/Buttons'
 import getNewText from './libs/getNewText'
 import buttonsDetector from './libs/buttonsDetector'
 import ReactMarkdown from 'react-markdown'
+import hljs from 'highlight.js'
+
+hljs.configure({
+  languages: ['javascript', 'python', 'php']
+})
 
 const {
   getButtonByName,
@@ -33,11 +40,27 @@ class JkReactMarkdown extends Component {
     selectionButtons: []
   }
 
+  componentDidUpdate (prevProps, prevState) {
+    console.log(this.state.showResult)
+    console.log(prevState.showResult)
+    if (this.state.showResult && !prevState.showResult) {
+      this.highlightCode()
+    }
+  }
+
   componentWillReceiveProps (newProps) {
     if (this.props.value !== newProps.value) {
       this.setState({
         textArr: newProps.value.split(/[\r\n]/)
       })
+    }
+  }
+
+  highlightCode () {
+    const domNode = ReactDOM.findDOMNode(this)
+    const nodes = domNode.querySelectorAll('pre code')
+    for (let i = 0; i < nodes.length; i++) {
+      hljs.highlightBlock(nodes[i])
     }
   }
 
