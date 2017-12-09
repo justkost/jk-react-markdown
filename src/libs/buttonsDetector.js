@@ -13,6 +13,11 @@ export default ({
   let result = []
 
   list.forEach(button => {
+    if (button.type === types.inline) {
+      if (button.re && button.re.test(selectionString)) {
+        result.push(button.name)
+      }
+    }
     if (button.type === types.block) {
       let buttonsNames = []
       textArr.forEach((line, index) => {
@@ -28,8 +33,12 @@ export default ({
         result.push(buttonsNames[0])
       }
     }
-    if (button.type === types.inline) {
-      if (button.re && button.re.test(selectionString)) {
+    if (button.type === types.code) {
+      if (
+        (rangeLines.start !== rangeLines.end) &&
+        (textArr[rangeLines.start] === button.before) &&
+        (textArr[rangeLines.end] === button.after)
+      ) {
         result.push(button.name)
       }
     }

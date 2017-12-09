@@ -110,7 +110,13 @@ export default ({
     let rangeLines = getRangeLines(textArr, selectionStart, selectionEnd)
     if (selectionButtons.includes(name)) {
       // Remove mode
-      console.log('remove mode')
+      newTextArr = textArr.filter((line, index) => {
+        if ((index === rangeLines.start) || (index === rangeLines.end)) {
+          return false
+        } else {
+          return true
+        }
+      })
     } else {
       // Add mode
       let tmpTextArr = newTextArr.length ? newTextArr : textArr
