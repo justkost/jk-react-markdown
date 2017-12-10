@@ -9,8 +9,16 @@ import Buttons from './libs/Buttons'
 import getNewText from './libs/getNewText'
 import buttonsDetector from './libs/buttonsDetector'
 import ReactMarkdown from 'react-markdown'
-import hljs from 'highlight.js'
 
+import hljs from 'highlight.js/lib/highlight'
+hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
+hljs.registerLanguage('css', require('highlight.js/lib/languages/css'))
+hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'))
+hljs.registerLanguage('php', require('highlight.js/lib/languages/php'))
+hljs.registerLanguage('python', require('highlight.js/lib/languages/python'))
+hljs.registerLanguage('ruby', require('highlight.js/lib/languages/ruby'))
+hljs.registerLanguage('json', require('highlight.js/lib/languages/json'))
+hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'))
 hljs.configure({
   languages: [
     'xml',
