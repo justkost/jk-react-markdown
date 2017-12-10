@@ -25,7 +25,7 @@ class Buttons {
     return this._types
   }
 
-  _defaultButtons = ['b', 'i', 'h1', 'h2', 'h3', 'ul', 'ol', 'a', 'codeBlock']
+  _defaultButtons = ['b', 'i', 'h1', 'h2', 'h3', 'ul', 'ol', 'a', 'codeDefault']
 
   _types = {
     block: 'block',
@@ -147,12 +147,30 @@ class Buttons {
       after: ')'
     },
     {
-      name: 'codeBlock',
-      title: 'Code block',
+      name: 'codeDefault',
+      title: 'Code',
       symbol: '',
       text: 'Code',
       type: this._types.code,
       before: '```',
+      after: '```'
+    },
+    {
+      name: 'codeHTML',
+      title: 'Code HTML, XML',
+      symbol: '',
+      text: 'HTML, XML',
+      type: this._types.code,
+      before: '```xml',
+      after: '```'
+    },
+    {
+      name: 'codeCSS',
+      title: 'Code CSS',
+      symbol: '',
+      text: 'CSS',
+      type: this._types.code,
+      before: '```css',
       after: '```'
     },
     {
@@ -165,6 +183,15 @@ class Buttons {
       after: '```'
     },
     {
+      name: 'codePHP',
+      title: 'Code PHP',
+      symbol: '',
+      text: 'PHP',
+      type: this._types.code,
+      before: '```php',
+      after: '```'
+    },
+    {
       name: 'codePython',
       title: 'Code Python',
       symbol: '',
@@ -174,12 +201,30 @@ class Buttons {
       after: '```'
     },
     {
-      name: 'codePython',
-      title: 'Code PHP',
+      name: 'codeRuby',
+      title: 'Code Ruby',
       symbol: '',
-      text: 'PHP',
+      text: 'Ruby',
       type: this._types.code,
-      before: '```php',
+      before: '```ruby',
+      after: '```'
+    },
+    {
+      name: 'codeJSON',
+      title: 'Code JSON',
+      symbol: '',
+      text: 'JSON',
+      type: this._types.code,
+      before: '```json',
+      after: '```'
+    },
+    {
+      name: 'codeSQL',
+      title: 'Code SQL',
+      symbol: '',
+      text: 'SQL',
+      type: this._types.code,
+      before: '```sql',
       after: '```'
     }
   ]

@@ -1,5 +1,5 @@
 import './jkReactMarkdown.css'
-import 'highlight.js/styles/default.css'
+import 'highlight.js/styles/github.css'
 
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
@@ -12,7 +12,16 @@ import ReactMarkdown from 'react-markdown'
 import hljs from 'highlight.js'
 
 hljs.configure({
-  languages: ['javascript', 'python', 'php']
+  languages: [
+    'xml',
+    'css',
+    'javascript',
+    'php',
+    'python',
+    'ruby',
+    'json',
+    'sql'
+  ]
 })
 
 const {
@@ -36,7 +45,7 @@ class JkReactMarkdown extends Component {
     selectionStart: 0,
     selectionEnd: 0,
     showResult: false,
-    textArr: this.props.value.split(/[\r\n]/),
+    textArr: this.props.value ? this.props.value.split(/[\r\n]/) : [],
     selectionButtons: []
   }
 
@@ -94,7 +103,7 @@ class JkReactMarkdown extends Component {
       textArr: this.state.textArr,
       selectionStart: e.target.selectionStart,
       selectionEnd: e.target.selectionEnd,
-      list: getList(),
+      list: getList(this.props.buttons),
       types: getTypes()
     })
     this.setState({
