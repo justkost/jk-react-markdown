@@ -17,13 +17,13 @@ export default ({
   let newText = text
   let { before, after, name, type, re } = button
 
-  // Inline
+  // Type inline
   if (
     (type === types.inline) &&
     (selectionStart !== selectionEnd)
   ) {
-    // Remove mode
     if (selectionButtons.includes(name)) {
+      // Remove mode
       let startString = text.substring(0, selectionStart)
       let middleString = text.substring(
         selectionStart + before.length,
@@ -44,14 +44,14 @@ export default ({
       inserted: before
     })
   }
-  // End Inline
+  // End Type inline
 
-  // Block
+  // Type block
   if (type === types.block) {
     let newTextArr = []
     let rangeLines = getRangeLines(textArr, selectionStart, selectionEnd)
-    // Remove mode
     if (selectionButtons.includes(name)) {
+      // Remove mode
       newTextArr = textArr.map((line, index) => {
         if ((index >= rangeLines.start) && (index <= rangeLines.end)) {
           return line.replace(re, '')
@@ -102,7 +102,37 @@ export default ({
     }
     newText = newTextArr.join('\n')
   }
-  // End Block
+  // End Type block
+
+  // Type code
+  if (type === types.code) {
+    let newTextArr = []
+    let rangeLines = getRangeLines(textArr, selectionStart, selectionEnd)
+    if (selectionButtons.includes(name)) {
+      // Remove mode
+      newTextArr = textArr.filter((line, index) => {
+        if ((index === rangeLines.start) || (index === rangeLines.end)) {
+          return false
+        } else {
+          return true
+        }
+      })
+    } else {
+      // Add mode
+      let tmpTextArr = newTextArr.length ? newTextArr : textArr
+      tmpTextArr.forEach((line, index) => {
+        if (index === rangeLines.start) {
+          newTextArr.push(button.before)
+        }
+        newTextArr.push(line)
+        if (index === rangeLines.end) {
+          newTextArr.push(button.after)
+        }
+      })
+    }
+    newText = newTextArr.join('\n')
+  }
+  // End code
 
   return newText
 }

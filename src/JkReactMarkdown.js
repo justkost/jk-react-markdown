@@ -1,12 +1,36 @@
 import './jkReactMarkdown.css'
+import 'highlight.js/styles/github.css'
 
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import Panel from './components/Panel'
 import Buttons from './libs/Buttons'
 import getNewText from './libs/getNewText'
 import buttonsDetector from './libs/buttonsDetector'
 import ReactMarkdown from 'react-markdown'
+
+import hljs from 'highlight.js/lib/highlight'
+hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
+hljs.registerLanguage('css', require('highlight.js/lib/languages/css'))
+hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'))
+hljs.registerLanguage('php', require('highlight.js/lib/languages/php'))
+hljs.registerLanguage('python', require('highlight.js/lib/languages/python'))
+hljs.registerLanguage('ruby', require('highlight.js/lib/languages/ruby'))
+hljs.registerLanguage('json', require('highlight.js/lib/languages/json'))
+hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'))
+hljs.configure({
+  languages: [
+    'xml',
+    'css',
+    'javascript',
+    'php',
+    'python',
+    'ruby',
+    'json',
+    'sql'
+  ]
+})
 
 const {
   getButtonByName,
@@ -29,8 +53,14 @@ class JkReactMarkdown extends Component {
     selectionStart: 0,
     selectionEnd: 0,
     showResult: false,
-    textArr: this.props.value.split(/[\r\n]/),
+    textArr: this.props.value ? this.props.value.split(/[\r\n]/) : [],
     selectionButtons: []
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    if (this.state.showResult && !prevState.showResult) {
+      this.highlightCode()
+    }
   }
 
   componentWillReceiveProps (newProps) {
@@ -38,6 +68,14 @@ class JkReactMarkdown extends Component {
       this.setState({
         textArr: newProps.value.split(/[\r\n]/)
       })
+    }
+  }
+
+  highlightCode () {
+    const domNode = ReactDOM.findDOMNode(this)
+    const nodes = domNode.querySelectorAll('pre code')
+    for (let i = 0; i < nodes.length; i++) {
+      hljs.highlightBlock(nodes[i])
     }
   }
 
@@ -73,7 +111,7 @@ class JkReactMarkdown extends Component {
       textArr: this.state.textArr,
       selectionStart: e.target.selectionStart,
       selectionEnd: e.target.selectionEnd,
-      list: getList(),
+      list: getList(this.props.buttons),
       types: getTypes()
     })
     this.setState({

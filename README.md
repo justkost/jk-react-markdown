@@ -13,11 +13,18 @@ npm install --save jk-react-markdown
 import 'jk-react-markdown/dist/jk-react-markdown.css'
 import Editor from 'jk-react-markdown'
 
+const buttonsList = [
+  'b', 'i', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'a', 'img',
+  'codeDefault', 'codeBlock', 'codeHTML', 'codeCSS', 'codeJavaScript',
+  'codePHP', 'codePython', 'codeRuby', 'codeJSON', 'codeSQL'
+]
+
 <Editor
   cols="30"
   rows="10"
   value={ this.state.value }
   onChange={ this.onChange }
+  buttons={ buttonsList }
 />
 ```
 
@@ -30,9 +37,6 @@ import Editor from 'jk-react-markdown'
 * value: PropTypes.string
 * onChange: PropTypes.func
 * buttons: PropTypes.array
-
-**buttons property** - is intended for sorting and filtering.
-Full list: ['b', 'i', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'a', 'img']
 
 ## Styles
 

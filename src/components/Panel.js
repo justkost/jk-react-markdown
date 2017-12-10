@@ -24,26 +24,12 @@ class Panel extends Component {
     let stylePanel = style.panel || {}
     let buttonsList = this.props.list.map((button, index) => {
       let className = 'JkReactMarkdown__panel-btn'
-      let text = ''
+      let text = button.text ? button.text : null
       if (this.props.showResult) {
         className += ' JkReactMarkdown__panel-btn--disabled'
       }
       if (this.props.selectionButtons.includes(button.name)) {
         className += ' JkReactMarkdown__panel-btn--active'
-      }
-      switch (button.name) {
-        case 'h1': text = 1
-          break
-        case 'h2': text = 2
-          break
-        case 'h3': text = 3
-          break
-        case 'h4': text = 4
-          break
-        case 'h5': text = 5
-          break
-        case 'h6': text = 6
-          break
       }
       return (
         <button

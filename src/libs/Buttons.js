@@ -25,11 +25,12 @@ class Buttons {
     return this._types
   }
 
-  _defaultButtons = ['b', 'i', 'h1', 'h2', 'h3', 'ul', 'ol', 'a', 'img']
+  _defaultButtons = ['b', 'i', 'h1', 'h2', 'h3', 'ul', 'ol', 'a', 'codeDefault']
 
   _types = {
     block: 'block',
-    inline: 'inline'
+    inline: 'inline',
+    code: 'code'
   }
 
   _list = [
@@ -55,6 +56,7 @@ class Buttons {
       name: 'h1',
       title: 'Header 1',
       symbol: 'icon-jk-header',
+      text: '1',
       type: this._types.block,
       before: '# ',
       re: /^#\s+/,
@@ -64,6 +66,7 @@ class Buttons {
       name: 'h2',
       title: 'Header 2',
       symbol: 'icon-jk-header',
+      text: '2',
       type: this._types.block,
       before: '## ',
       re: /^##\s+/,
@@ -73,6 +76,7 @@ class Buttons {
       name: 'h3',
       title: 'Header 3',
       symbol: 'icon-jk-header',
+      text: '3',
       type: this._types.block,
       before: '### ',
       re: /^###\s+/,
@@ -82,6 +86,7 @@ class Buttons {
       name: 'h4',
       title: 'Header 4',
       symbol: 'icon-jk-header',
+      text: '4',
       type: this._types.block,
       before: '#### ',
       re: /^####\s+/,
@@ -91,6 +96,7 @@ class Buttons {
       name: 'h5',
       title: 'Header 5',
       symbol: 'icon-jk-header',
+      text: '5',
       type: this._types.block,
       before: '##### ',
       re: /^#####\s+/,
@@ -100,6 +106,7 @@ class Buttons {
       name: 'h6',
       title: 'Header 6',
       symbol: 'icon-jk-header',
+      text: '6',
       type: this._types.block,
       before: '###### ',
       re: /^######\s+/,
@@ -138,6 +145,87 @@ class Buttons {
       type: this._types.inline,
       before: '![alt text](',
       after: ')'
+    },
+    {
+      name: 'codeDefault',
+      title: 'Code',
+      symbol: '',
+      text: 'Code',
+      type: this._types.code,
+      before: '```',
+      after: '```'
+    },
+    {
+      name: 'codeHTML',
+      title: 'Code HTML, XML',
+      symbol: '',
+      text: 'HTML, XML',
+      type: this._types.code,
+      before: '```xml',
+      after: '```'
+    },
+    {
+      name: 'codeCSS',
+      title: 'Code CSS',
+      symbol: '',
+      text: 'CSS',
+      type: this._types.code,
+      before: '```css',
+      after: '```'
+    },
+    {
+      name: 'codeJavaScript',
+      title: 'Code JavaScript',
+      symbol: '',
+      text: 'JavaScript',
+      type: this._types.code,
+      before: '```javascript',
+      after: '```'
+    },
+    {
+      name: 'codePHP',
+      title: 'Code PHP',
+      symbol: '',
+      text: 'PHP',
+      type: this._types.code,
+      before: '```php',
+      after: '```'
+    },
+    {
+      name: 'codePython',
+      title: 'Code Python',
+      symbol: '',
+      text: 'Python',
+      type: this._types.code,
+      before: '```python',
+      after: '```'
+    },
+    {
+      name: 'codeRuby',
+      title: 'Code Ruby',
+      symbol: '',
+      text: 'Ruby',
+      type: this._types.code,
+      before: '```ruby',
+      after: '```'
+    },
+    {
+      name: 'codeJSON',
+      title: 'Code JSON',
+      symbol: '',
+      text: 'JSON',
+      type: this._types.code,
+      before: '```json',
+      after: '```'
+    },
+    {
+      name: 'codeSQL',
+      title: 'Code SQL',
+      symbol: '',
+      text: 'SQL',
+      type: this._types.code,
+      before: '```sql',
+      after: '```'
     }
   ]
 }

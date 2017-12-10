@@ -21,17 +21,22 @@
   text-decoration: none;
   color: #eee;
   border: none;
-  border-right: 1px solid #666;
+  border-left: 1px solid #666;
   background: transparent;
   font-size: 13px;
-  flex-basis: 50px;
   min-width: 50px;
   text-align: center;
   outline: none;
   cursor: pointer;
 }
+.JkReactMarkdown__panel-btn:first-child{
+  border-left: none;
+}
+.JkReactMarkdown__panel-btn:last-child{
+  border-right: 1px solid #666;
+}
 
-.JkReactMarkdown__panel-btn-result{
+.JkReactMarkdown__panel-btn-result:first-child{
   border-right: none;
   border-left: 1px solid #666;
 }
