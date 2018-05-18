@@ -1,6 +1,9 @@
+/* global prompt */
+
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import JkReactMarkdown from '../src/JkReactMarkdown'
+import insertTag from '../src/libs/insertTag'
 
 class App extends Component {
   state = {
@@ -14,7 +17,8 @@ alert(s);
 \`\`\`
 let str = "hello world";
 alert(str);
-\`\`\``
+\`\`\``,
+    valueWithImg: '![alt text](../screenshot.png)'
   }
 
   onChangeMin = (text) => {
@@ -29,8 +33,25 @@ alert(str);
     this.setState({valueWithPreview: text})
   }
 
+  onChangeWithImg = (text) => {
+    this.setState({valueWithImg: text})
+  }
+
+  onClickImg = (ctx) => {
+    const userPath = prompt('Image path', 'https://')
+    const imgPath = `![](${userPath})`
+    if (!userPath) return
+    const newText = insertTag({
+      text: ctx.text,
+      position: ctx.position,
+      inserted: imgPath
+    })
+    this.onChangeWithImg(newText)
+  }
+
   render () {
     const buttons = ['b', 'i', 'h1', 'ul', 'code']
+    const buttonsWithImg = ['b', 'i', 'h1', 'h2', 'img', 'ul', 'ol', 'code']
 
     return (
       <div>
@@ -47,6 +68,15 @@ alert(str);
           value={ this.state.valueWithPreview }
           buttons={ buttons }
           showPreview
+        />
+        <br/>
+
+        <h2>Cutom img handler</h2>
+        <JkReactMarkdown
+          onChange={ this.onChangeWithImg }
+          value={ this.state.valueWithImg }
+          buttons={ buttonsWithImg }
+          onClickImg={ this.onClickImg }
         />
       </div>
     )

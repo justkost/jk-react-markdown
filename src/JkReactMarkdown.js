@@ -45,6 +45,7 @@ class JkReactMarkdown extends Component {
     rows: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
+    onClickImg: PropTypes.func,
     styles: PropTypes.object,
     buttons: PropTypes.array,
     showPreview: PropTypes.bool
@@ -89,7 +90,16 @@ class JkReactMarkdown extends Component {
       return
     }
 
+    // disable buttons if preview on
     if (this.state.showResult) return
+
+    if (name === 'img' && this.props.onClickImg) {
+      this.props.onClickImg({
+        text: this.props.value,
+        position: this.state.selectionEnd || this.state.selectionStart
+      })
+      return
+    }
 
     let newText = getNewText({
       button: getButtonByName(name),
