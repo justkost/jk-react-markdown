@@ -60,8 +60,6 @@ if (NODE_ENV === 'production') {
     'react-dom': 'react-dom'
   }
   module.exports.plugins.push(
-    new UglifyJSPlugin({
-      compress: true
-    })
+    new UglifyJSPlugin()
   )
 }

@@ -20,7 +20,7 @@
   padding: 5px;
   text-decoration: none;
   color: #eee;
-  border: none;
+  border: 1px solid transparent;
   border-left: 1px solid #666;
   background: transparent;
   font-size: 13px;
@@ -49,6 +49,7 @@
 .JkReactMarkdown__panel-btn:focus{
   color: #eee;
   background: transparent;
+  outline: none;
 }
 
 .JkReactMarkdown__panel-btn--active{

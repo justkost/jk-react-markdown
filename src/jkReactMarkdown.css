@@ -11,3 +11,7 @@
   width: 100%;
   background: #fff;
 }
+
+.JkReactMarkdown__textarea:focus{
+  outline: none;
+}
