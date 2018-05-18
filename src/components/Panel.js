@@ -42,7 +42,7 @@ class Panel extends Component {
       )
     })
 
-    let iconResult = this.props.showResult ? (
+    let iconPreview = this.props.showResult ? (
       <i className="icon-jk-eye-off"></i>
     ) : (
       <i className="icon-jk-eye"></i>
@@ -56,9 +56,9 @@ class Panel extends Component {
         <div className="JkReactMarkdown__panel-right">
           <button
             onClick={ this.onClick('showResult') }
-            title="Result"
+            title="Preview"
             className="JkReactMarkdown__panel-btn JkReactMarkdown__panel-btn-result">
-            { iconResult }
+            { iconPreview }
           </button>
         </div>
       </div>
