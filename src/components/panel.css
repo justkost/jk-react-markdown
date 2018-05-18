@@ -1,18 +1,19 @@
 .JkReactMarkdown__panel{
   background: #333;
   display: flex;
-  justify-content: space-between;
 }
 
 .JkReactMarkdown__panel-left{
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
+  flex: 1 1;
 }
 
 .JkReactMarkdown__panel-right{
   display: flex;
   justify-content: flex-end;
+  flex: 0 0 50px;
 }
 
 .JkReactMarkdown__panel-btn{
@@ -24,16 +25,14 @@
   border-left: 1px solid #666;
   background: transparent;
   font-size: 13px;
-  min-width: 50px;
   text-align: center;
   outline: none;
   cursor: pointer;
+  text-align: center;
+  flex: 1 0 50px;
 }
 .JkReactMarkdown__panel-btn:first-child{
   border-left: none;
-}
-.JkReactMarkdown__panel-btn:last-child{
-  border-right: 1px solid #666;
 }
 
 .JkReactMarkdown__panel-btn-result:first-child{
