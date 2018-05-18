@@ -147,6 +147,15 @@ class Buttons {
       after: ')'
     },
     {
+      name: 'code',
+      title: 'Code',
+      symbol: '',
+      text: 'Code',
+      type: this._types.code,
+      before: '```',
+      after: '```'
+    },
+    {
       name: 'codeDefault',
       title: 'Code',
       symbol: '',

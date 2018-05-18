@@ -13,10 +13,9 @@ npm install --save jk-react-markdown
 import 'jk-react-markdown/dist/jk-react-markdown.css'
 import Editor from 'jk-react-markdown'
 
-const buttonsList = [
-  'b', 'i', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'a', 'img',
-  'codeDefault', 'codeHTML', 'codeCSS', 'codeJavaScript',
-  'codePHP', 'codePython', 'codeRuby', 'codeJSON', 'codeSQL'
+const buttons = [
+  'b', 'i', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol',
+  'a', 'img', 'code'
 ]
 
 <Editor
@@ -24,7 +23,7 @@ const buttonsList = [
   rows="10"
   value={ this.state.value }
   onChange={ this.onChange }
-  buttons={ buttonsList }
+  buttons={ buttons }
 />
 ```
 
