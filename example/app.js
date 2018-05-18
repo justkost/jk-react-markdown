@@ -10,10 +10,11 @@ class App extends Component {
 var s = "JavaScript syntax highlighting";
 alert(s);
 \`\`\``,
-    valueWithPreview: `* list item 1
-* list item 2
-* list item 3
-`
+    valueWithPreview: `### JavaScript
+\`\`\`
+let str = "hello world";
+alert(str);
+\`\`\``
   }
 
   onChangeMin = (text) => {
@@ -29,12 +30,7 @@ alert(s);
   }
 
   render () {
-    const buttonsMaxList = [
-      'b', 'i', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'a', 'img',
-      'codeDefault', 'codeHTML', 'codeCSS', 'codeJavaScript',
-      'codePHP', 'codePython', 'codeRuby', 'codeJSON', 'codeSQL'
-    ]
-    const buttonsSmallList = ['b', 'i', 'h1', 'h3', 'ul', 'a']
+    const buttons = ['b', 'i', 'h1', 'ul', 'code']
 
     return (
       <div>
@@ -45,19 +41,11 @@ alert(s);
         />
         <br/>
 
-        <h2>All buttons</h2>
-        <JkReactMarkdown
-          onChange={ this.onChangeMax }
-          value={ this.state.valueMax }
-          buttons={ buttonsMaxList }
-        />
-        <br/>
-
         <h2>Show previews always</h2>
         <JkReactMarkdown
           onChange={ this.onChangeWithPreview }
           value={ this.state.valueWithPreview }
-          buttons={ buttonsSmallList }
+          buttons={ buttons }
           showPreview
         />
       </div>

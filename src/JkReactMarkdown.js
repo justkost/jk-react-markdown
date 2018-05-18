@@ -69,6 +69,9 @@ class JkReactMarkdown extends Component {
       this.setState({
         textArr: newProps.value.split(/[\r\n]/)
       })
+      if (this.props.showPreview) {
+        this.highlightCode()
+      }
     }
   }
 
