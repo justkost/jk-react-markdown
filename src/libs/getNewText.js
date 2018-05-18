@@ -18,10 +18,7 @@ export default ({
   let { before, after, name, type, re } = button
 
   // Type inline
-  if (
-    (type === types.inline) &&
-    (selectionStart !== selectionEnd)
-  ) {
+  if (type === types.inline) {
     if (selectionButtons.includes(name)) {
       // Remove mode
       let startString = text.substring(0, selectionStart)
