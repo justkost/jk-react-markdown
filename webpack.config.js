@@ -12,7 +12,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, './dist'),
+    path: NODE_ENV === 'development' ? path.join(__dirname, './dist-dev') : path.join(__dirname, './dist'),
     library: 'JkReactMarkdown',
     libraryTarget: 'umd'
   },
@@ -31,7 +31,7 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'postcss-loader']
+          use: NODE_ENV === 'development' ? ['css-loader'] : ['css-loader', 'postcss-loader']
         })
       },
       {
