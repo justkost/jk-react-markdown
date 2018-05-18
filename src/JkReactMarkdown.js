@@ -46,7 +46,8 @@ class JkReactMarkdown extends Component {
     value: PropTypes.string,
     onChange: PropTypes.func,
     styles: PropTypes.object,
-    buttons: PropTypes.array
+    buttons: PropTypes.array,
+    showPreview: PropTypes.bool
   }
 
   state = {
@@ -122,7 +123,7 @@ class JkReactMarkdown extends Component {
   }
 
   render () {
-    let { styles } = this.props
+    let { styles, showPreview } = this.props
     styles = styles || {}
     let cols = this.props.cols ? this.props.cols : '30'
     let rows = this.props.rows ? this.props.rows : '5'
@@ -144,18 +145,42 @@ class JkReactMarkdown extends Component {
       </div>
     )
 
-    return (
-      <div>
-        <Panel
-          onClick={ this.onClickButton }
-          style={ this.props.styles }
-          showResult={ this.state.showResult }
-          selectionButtons={ this.state.selectionButtons }
-          list={ getList(this.props.buttons) }
-        />
-        { this.state.showResult ? result : editor }
-      </div>
-    )
+    if (showPreview) {
+      return (
+        <div>
+          <div className="JkReactMarkdown__row">
+            <div className="JkReactMarkdown__col JkReactMarkdown__col-editor">
+              <Panel
+                onClick={ this.onClickButton }
+                style={ this.props.styles }
+                showResult={ this.state.showResult }
+                selectionButtons={ this.state.selectionButtons }
+                list={ getList(this.props.buttons) }
+                showPreview={ showPreview }
+              />
+              { editor }
+            </div>
+            <div className="JkReactMarkdown__col JkReactMarkdown__col-result">
+              { result }
+            </div>
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <Panel
+            onClick={ this.onClickButton }
+            style={ this.props.styles }
+            showResult={ this.state.showResult }
+            selectionButtons={ this.state.selectionButtons }
+            list={ getList(this.props.buttons) }
+            showPreview={ showPreview }
+          />
+          { this.state.showResult ? result : editor }
+        </div>
+      )
+    }
   }
 }
 

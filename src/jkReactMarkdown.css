@@ -15,3 +15,28 @@
 .JkReactMarkdown__textarea:focus{
   outline: none;
 }
+
+.JkReactMarkdown__row{
+  display: flex;
+}
+
+.JkReactMarkdown__col{
+
+}
+
+.JkReactMarkdown__col-editor{
+  flex: 1 0 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.JkReactMarkdown__col-result{
+  flex: 1 1 50%;
+  display: flex;
+  overflow: auto;
+}
+
+.JkReactMarkdown__col-result .JkReactMarkdown__result{
+  flex: 1;
+  border-left: none;
+}

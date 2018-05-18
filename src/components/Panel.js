@@ -10,7 +10,8 @@ class Panel extends Component {
     showResult: PropTypes.bool,
     style: PropTypes.object,
     selectionButtons: PropTypes.array,
-    list: PropTypes.array
+    list: PropTypes.array,
+    showPreview: PropTypes.bool
   }
 
   onClick = (name) => (e) => {
@@ -48,11 +49,9 @@ class Panel extends Component {
       <i className="icon-jk-eye"></i>
     )
 
-    return (
-      <div className="JkReactMarkdown__panel" style={ stylePanel }>
-        <div className="JkReactMarkdown__panel-left">
-          { buttonsList }
-        </div>
+    let preview = null
+    if (!this.props.showPreview) {
+      preview = (
         <div className="JkReactMarkdown__panel-right">
           <button
             onClick={ this.onClick('showResult') }
@@ -61,6 +60,15 @@ class Panel extends Component {
             { iconPreview }
           </button>
         </div>
+      )
+    }
+
+    return (
+      <div className="JkReactMarkdown__panel" style={ stylePanel }>
+        <div className="JkReactMarkdown__panel-left">
+          { buttonsList }
+        </div>
+        { preview }
       </div>
     )
   }
