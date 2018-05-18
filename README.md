@@ -24,6 +24,7 @@ const buttons = [
   value={ this.state.value }
   onChange={ this.onChange }
   buttons={ buttons }
+  showPreview
 />
 ```
 
@@ -36,6 +37,7 @@ const buttons = [
 * value: PropTypes.string
 * onChange: PropTypes.func
 * buttons: PropTypes.array
+* showPreview: PropTypes.bool
 
 ## Styles
 
