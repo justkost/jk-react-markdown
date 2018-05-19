@@ -47,14 +47,14 @@ alert(str);
     ]
     return (
       <div>
-        <h3>Default</h3>
         <Editor
+          rows="1"
           onChange={ this.onChangeDefault }
           value={ this.state.valueDefault }
           buttons={ buttonsDefault }
         />
 
-        <h3>Show previews always</h3>
+        <h3>Show preview always</h3>
         <Editor
           onChange={ this.onChangeWithPreview }
           value={ this.state.valueWithPreview }
@@ -62,7 +62,7 @@ alert(str);
           showPreview
         />
 
-        <h3>Cutom img handler</h3>
+        <h3>Custom image handler</h3>
         <Editor
           onChange={ this.onChangeWithImg }
           value={ this.state.valueWithImg }
