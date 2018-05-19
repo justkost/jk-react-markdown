@@ -37,6 +37,30 @@ const buttons = [
 * buttons: PropTypes.array
 * showPreview: PropTypes.bool
 
+## Custom image handler
+```js
+import 'jk-react-markdown/dist/jk-react-markdown.css'
+import Editor from 'jk-react-markdown'
+import insertStr from 'jk-react-markdown/src/libs/insertStr'
+
+onClickImg = (ctx) => {
+  const customPath = prompt('URL', 'https://')
+  if (!customPath) return
+  const newText = insertStr({
+    text: ctx.text,
+    position: ctx.position,
+    str: `![](${customPath})`
+  })
+  this.onChange(newText)
+}
+
+<Editor
+  value={ this.state.value }
+  onChange={ this.onChange }
+  onClickImg={ this.onClickImg }
+/>
+```
+
 ## Styles
 
 ```js
