@@ -5,6 +5,10 @@
   min-height: 50px;
 }
 
+.JkReactMarkdown__result img{
+  max-width: 100%;
+}
+
 .JkReactMarkdown__textarea{
   border: 2px solid #333;
   padding: 5px 15px;
