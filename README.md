@@ -19,23 +19,21 @@ const buttons = [
 ]
 
 <Editor
-  cols="30"
-  rows="10"
   value={ this.state.value }
   onChange={ this.onChange }
   buttons={ buttons }
-  showPreview
 />
 ```
 
 ## Props
 
+* value: PropTypes.string
+* onChange: PropTypes.func
 * className: PropTypes.string
 * styles: PropTypes.object
 * cols: PropTypes.string
 * rows: PropTypes.string
-* value: PropTypes.string
-* onChange: PropTypes.func
+* onClickImg: PropTypes.func
 * buttons: PropTypes.array
 * showPreview: PropTypes.bool
 
@@ -48,3 +46,15 @@ let styles = {
   panel: {backgroundColor: '#2c3e50'}
 }
 ```
+
+## Syntax highlighting (highlight.js)
+
+* html
+* xml
+* css
+* javascript
+* php
+* python
+* ruby
+* json
+* sql

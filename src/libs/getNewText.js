@@ -1,4 +1,4 @@
-import insertTag from './insertTag'
+import insertStr from './insertStr'
 import getRangeLines from './getRangeLines'
 
 export default ({
@@ -30,15 +30,15 @@ export default ({
       return startString + middleString.replace(re, '') + endString
     }
     // Add mode
-    newText = insertTag({
+    newText = insertStr({
       text: text,
       position: selectionEnd,
-      inserted: after
+      str: after
     })
-    newText = insertTag({
+    newText = insertStr({
       text: newText,
       position: selectionStart,
-      inserted: before
+      str: before
     })
   }
   // End Type inline

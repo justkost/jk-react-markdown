@@ -2,31 +2,22 @@
 
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import JkReactMarkdown from '../src/JkReactMarkdown'
-import insertTag from '../src/libs/insertTag'
+import Editor from '../src/JkReactMarkdown'
+import insertStr from '../src/libs/insertStr'
 
 class App extends Component {
   state = {
-    valueMin: 'Hello **world**!!!',
-    valueMax: `### JavaScript
-\`\`\`javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-\`\`\``,
+    valueDefault: 'Hello **world**!!!',
     valueWithPreview: `### JavaScript
 \`\`\`
 let str = "hello world";
 alert(str);
 \`\`\``,
-    valueWithImg: '![alt text](../screenshot.png)'
+    valueWithImg: ''
   }
 
-  onChangeMin = (text) => {
-    this.setState({valueMin: text})
-  }
-
-  onChangeMax = (text) => {
-    this.setState({valueMax: text})
+  onChangeDefault = (text) => {
+    this.setState({valueDefault: text})
   }
 
   onChangeWithPreview = (text) => {
@@ -38,44 +29,44 @@ alert(str);
   }
 
   onClickImg = (ctx) => {
-    const userPath = prompt('Image path', 'https://')
-    const imgPath = `![](${userPath})`
-    if (!userPath) return
-    const newText = insertTag({
+    const customPath = prompt('URL', 'https://')
+    if (!customPath) return
+    const newText = insertStr({
       text: ctx.text,
       position: ctx.position,
-      inserted: imgPath
+      str: `![](${customPath})`
     })
     this.onChangeWithImg(newText)
   }
 
   render () {
-    const buttons = ['b', 'i', 'h1', 'ul', 'code']
-    const buttonsWithImg = ['b', 'i', 'h1', 'h2', 'img', 'ul', 'ol', 'code']
-
+    const buttonsPreview = ['b', 'i', 'h1', 'ul', 'code']
+    const buttonsDefault = [
+      'b', 'i', 'h1', 'h2', 'h3', 'ul', 'ol',
+      'a', 'img', 'code'
+    ]
     return (
       <div>
-        <h2>Default</h2>
-        <JkReactMarkdown
-          onChange={ this.onChangeMin }
-          value={ this.state.valueMin }
+        <h3>Default</h3>
+        <Editor
+          onChange={ this.onChangeDefault }
+          value={ this.state.valueDefault }
+          buttons={ buttonsDefault }
         />
-        <br/>
 
-        <h2>Show previews always</h2>
-        <JkReactMarkdown
+        <h3>Show previews always</h3>
+        <Editor
           onChange={ this.onChangeWithPreview }
           value={ this.state.valueWithPreview }
-          buttons={ buttons }
+          buttons={ buttonsPreview }
           showPreview
         />
-        <br/>
 
-        <h2>Cutom img handler</h2>
-        <JkReactMarkdown
+        <h3>Cutom img handler</h3>
+        <Editor
           onChange={ this.onChangeWithImg }
           value={ this.state.valueWithImg }
-          buttons={ buttonsWithImg }
+          buttons={ buttonsDefault }
           onClickImg={ this.onClickImg }
         />
       </div>
