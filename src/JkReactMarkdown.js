@@ -55,7 +55,7 @@ class JkReactMarkdown extends Component {
     selectionStart: 0,
     selectionEnd: 0,
     showResult: false,
-    textArr: this.props.value ? this.props.value.split(/[\r\n]/) : [],
+    textArr: this.props.value ? this.props.value.split(/[\r\n]/) : [''],
     selectionButtons: []
   }
 
