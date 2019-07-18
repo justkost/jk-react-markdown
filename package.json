@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/justkost/jk-react-markdown.git"
   },
-  "author": "justkost",
+  "author": "Konstantin Ostroukhov",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/justkost/jk-react-markdown/issues"
